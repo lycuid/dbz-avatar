@@ -1,24 +1,60 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import './index.css';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
+import AvatarImage from '../components/AvatarImage/avatarimage.component';
+import { useStateReducer } from '../utils/hooks';
 
+
+const defaultColors = {
+  face: '#E8BB9E',
+  eyes: '#000000',
+  nose: '#000000',
+  hair: '#000000',
+};
 
 interface IndexPageProps { }
 
-const IndexPage: React.FC<IndexPageProps> = () => (
-  <Layout>
-    <SEO title='Home' />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to='/page-2/'>Go to page 2</Link>
-  </Layout>
-);
+const IndexPage: React.FC<IndexPageProps> = () => {
+  const [colors, dispatchColors] = useStateReducer(defaultColors);
+  return (
+    <Layout>
+      <SEO title='Home' />
+      <header style={{
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <div style={{
+          width: '200px',
+          height: '200px',
+        }}>
+          <AvatarImage colors={colors} />
+          <ul>
+            {Object.keys(defaultColors).map((key) => (
+              <li key={key}>
+                <label htmlFor={key}>
+                  {key}
+                  <input
+                    id={key}
+                    name={key}
+                    type='color'
+                    value={colors[key] || ''}
+                    onChange={({ target }) => {
+                      dispatchColors({ [key]: target.value });
+                    }}
+                  />
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </header>
+    </Layout>
+  );
+}
 
 export default IndexPage;
