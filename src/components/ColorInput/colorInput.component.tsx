@@ -9,7 +9,7 @@ const ColorInput: React.FC<ColorInputProps> = (props) => {
   return (<>
     <div className='color-input'>
       <label htmlFor={props.id || ''}>
-        <small>set custom color:</small>
+        <code>custom:&nbsp;&nbsp;</code>
         <input {...props} type='color' />
       </label>
     </div>

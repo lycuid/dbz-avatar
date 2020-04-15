@@ -1,5 +1,22 @@
-.preview-image,
+.preview-image {
+  box-sizing: border-box;
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  box-shadow:
+  -4px -4px 10px rgba(255, 255, 255, .85),
+  4px 4px 10px rgba(0, 0, 0, .2);
+}
+
 .preview-image svg {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+}
+
+.preview-image.selected {
+  box-shadow:
+    -4px -4px 10px rgba(255, 255, 255, .85) inset,
+    4px 4px 10px rgba(0, 0, 0, .2) inset;
+  border-radius: 4px;
 }
