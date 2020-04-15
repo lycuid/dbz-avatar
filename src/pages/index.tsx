@@ -1,54 +1,17 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import './index.css';
-
-import { useStateReducer } from '../utils/hooks';
 
 import Head from '../components/head';
 import AvatarImage from '../components/AvatarImage/avatarImage.component';
 import SelectionContainer from '../components/SelectionContainer/selectionContainer.component';
 import SelectionBox from '../components/SelectionBox/selectionBox.component';
 import Preview from '../components/Preview/preview.component';
-
-import Faces from '../components/AvatarParts/face';
-import Eyes from '../components/AvatarParts/eyes';
-import Noses from '../components/AvatarParts/nose';
-import Mouths from '../components/AvatarParts/mouth';
-import Hairs from '../components/AvatarParts/hair';
 import ColorSelector from '../components/ColorSelector/colorSelector.component';
+import PreviewSelector from '../components/PreviewSelector/previewSelector.component';
 
+import { AVATAR_PARTS, BOUNDS } from '../configs';
+import { useStateReducer } from '../utils/hooks';
 
-const AVATAR_PARTS: AvatarParts = {
-  face: Faces.map((face) => ({
-    component: face,
-    defaultColors: ['#e8bb9e', '#708090', '#fa8072'],
-  })),
-  eyes: Eyes.map((eyes) => ({
-    component: eyes,
-    defaultColors: ['#000000', '#00ffff', '#00ff00', '#ff0000'],
-  })),
-  nose: Noses.map((nose) => ({
-    component: nose,
-    defaultColors: ['#000000'],
-  })),
-  mouth: Mouths.map((mouth) => ({
-    component: mouth,
-    defaultColors: [],
-  })),
-  hair: Hairs.map((hair) => ({
-    component: hair,
-    defaultColors: ['#000000', '#00ff00', '#0000ff', '#ff0000', '#708090', '#fa8072'],
-  })),
-};
-
-const getPartNames = () => Object.keys(AVATAR_PARTS) as AvatarPartID[];
-
-const BOUNDS = {
-  face: [30, 40, 140, 140],
-  eyes: [60, 100, 80, 80],
-  nose: [90, 140, 20, 20],
-  mouth: [80,140, 40, 40],
-  hair: [10, 10, 180, 180],
-}
 
 interface IndexPageProps { }
 
@@ -66,10 +29,12 @@ const IndexPage: React.FC<IndexPageProps> = () => {
       }), {})
   );
 
+  const partNames = useMemo(() => Object.keys(AVATAR_PARTS) as AvatarPartID[], []);
 
   const getInputs = useCallback((name: AvatarPartID) => {
     const { cIndex, fill } = parts[name];
-    const { defaultColors, component } = AVATAR_PARTS[name][cIndex];
+    const selectedParts = AVATAR_PARTS[name];
+    const { defaultColors } = selectedParts[cIndex];
 
     return (
       <SelectionBox key={name}
@@ -79,11 +44,60 @@ const IndexPage: React.FC<IndexPageProps> = () => {
           dispatchParts({ [name]: { cIndex, fill: target.value } });
         }}
       >
-        <Preview>
-          <svg viewBox={BOUNDS[name].map(String).join(', ')}>
-            {component({ fill })}
-          </svg>
-        </Preview>
+        <PreviewSelector>
+          {selectedParts.map(({ component }, index) => {
+            const isSelected = cIndex === index;
+            return (
+              <Preview
+                key={name + String(index)}
+                selected={isSelected}
+                onClick={() => {
+                  if (!isSelected)
+                    dispatchParts({ [name]: { fill, cIndex: index } });
+                }}
+              >
+                <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+                  {component({ fill })}
+                </svg>
+              </Preview>
+            )
+          })}
+          {/* <Preview>
+            <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+              {component({ fill })}
+            </svg>
+          </Preview>
+          <Preview>
+            <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+              {component({ fill })}
+            </svg>
+          </Preview>
+          <Preview>
+            <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+              {component({ fill })}
+            </svg>
+          </Preview>
+          <Preview>
+            <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+              {component({ fill })}
+            </svg>
+          </Preview>
+          <Preview>
+            <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+              {component({ fill })}
+            </svg>
+          </Preview>
+          <Preview>
+            <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+              {component({ fill })}
+            </svg>
+          </Preview>
+          <Preview>
+            <svg viewBox={BOUNDS[name].map(String).join(', ')}>
+              {component({ fill })}
+            </svg>
+          </Preview> */}
+        </PreviewSelector>
         <ColorSelector
           selected={fill}
           colors={defaultColors}
@@ -109,11 +123,11 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     <div id='wrapper' className='container'>
 
       <AvatarImage>
-        {getPartNames().map(getPart)}
+        {partNames.map(getPart)}
       </AvatarImage>
 
       <SelectionContainer>
-        {getPartNames().map(getInputs)}
+        {partNames.map(getInputs)}
       </SelectionContainer>
 
     </div>

@@ -9,5 +9,11 @@ const Mouth1: React.FC<AvatarMouthProps> = () => {
   </>);
 }
 
+const Mouth2: React.FC<AvatarMouthProps> = () => {
+  return (<>
+    <path stroke='#000' fill='none' d='M95 162 Q105 162, 110 158' />
+  </>);
+}
 
-export default [Mouth1];
+
+export default [Mouth1, Mouth2];
