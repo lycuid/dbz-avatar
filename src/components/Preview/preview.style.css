@@ -1,0 +1,5 @@
+.preview-image,
+.preview-image svg {
+  height: 50px;
+  width: 50px;
+}

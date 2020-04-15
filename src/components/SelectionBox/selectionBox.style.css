@@ -1,0 +1,8 @@
+.selection-box {
+  border-radius: 6px;
+  margin: 15px;
+  padding: 5px 10px 10px;
+  box-shadow:
+    -6px -6px 15px rgba(255, 255, 255, .85),
+    6px 6px 15px rgba(0, 0, 0, .2);
+}

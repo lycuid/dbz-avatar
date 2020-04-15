@@ -1,8 +1,10 @@
-type PartName = 'face' | 'eyes' | 'nose' | 'mouth' | 'hair';
+type AvatarPartID = 'face' | 'eyes' | 'nose' | 'mouth' | 'hair';
 
-interface Part {
+interface AvatarPartObject {
   component: React.FC<any>,
   defaultColors: string[]
 }
 
-type AvatarParts = { [index in PartName]: Part[] };
+type AvatarParts = { [index in AvatarPartID]: AvatarPartObject[] };
+
+type Maybe<T> = T | undefined;
