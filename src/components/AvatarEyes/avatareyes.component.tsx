@@ -3,7 +3,7 @@ import React from 'react';
 
 interface AvatarEyesProps { fill: string }
 
-const AvatarEyes: React.FC<AvatarEyesProps> = ({ fill }) => {
+export const Eyes1: React.FC<AvatarEyesProps> = ({ fill }) => {
   return (<>
     <g fill='#FFF'>
       <polygon points='67.5,130 70,140 95,140' />
@@ -19,5 +19,3 @@ const AvatarEyes: React.FC<AvatarEyesProps> = ({ fill }) => {
     </g>
   </>);
 }
-
-export default AvatarEyes;

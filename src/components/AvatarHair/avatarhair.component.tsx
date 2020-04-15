@@ -3,7 +3,7 @@ import React from 'react';
 
 interface AvatarHairProps { fill: string }
 
-const AvatarHair: React.FC<AvatarHairProps> = ({ fill }) => {
+export const Hair1: React.FC<AvatarHairProps> = ({ fill }) => {
   return (<>
     <path stroke='#000' fill={fill}
       d='M55 140
@@ -19,5 +19,3 @@ const AvatarHair: React.FC<AvatarHairProps> = ({ fill }) => {
     />
   </>);
 }
-
-export default AvatarHair;
