@@ -1,23 +1,23 @@
 import React from 'react';
-import './selectionBox.style.css';
+import './palette.style.css';
 
 import ColorInput from '../ColorInput/colorInput.component';
 
 
-interface SelectionBoxProps {
+interface PaletteProps {
   title: string,
   selected: string,
   onSelect: (e: React.ChangeEvent<HTMLInputElement>) => Maybe<void>,
 }
 
-const SelectionBox: React.FC<SelectionBoxProps> = ({
+const Palette: React.FC<PaletteProps> = ({
   title,
   selected,
   onSelect,
   children,
 }) => {
   return (<>
-    <div className='selection-box'>
+    <div className='palette'>
       <strong>{title.toUpperCase()}</strong>
       <hr />
 
@@ -31,4 +31,4 @@ const SelectionBox: React.FC<SelectionBoxProps> = ({
   </>);
 }
 
-export default SelectionBox;
+export default Palette;

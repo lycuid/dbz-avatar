@@ -1,19 +1,21 @@
-.color-selector {
+.color-swatch--container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 10px 0;
 }
 
-.color-selector--cell {
-  margin: 5px;
+.color-swatch {
+  width: 25px;
+  height: 25px;
   color: white;
-  border-radius: 2px/50%;
+  margin: 5px;
+  border-radius: 50%;
   cursor: pointer;
-  width: 15px;
-  height: 15px;
-  padding: 2px;
+
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+
+  font-size: 24px;
 }

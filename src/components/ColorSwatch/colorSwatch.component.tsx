@@ -1,31 +1,31 @@
 import React from 'react';
-import './colorSelector.style.css';
+import './colorSwatch.style.css';
 
 
-interface ColorSelectorProps {
+interface ColorSwatchProps {
   colors: string[],
   selected: string,
   onSelect: (color: string) => void
 }
 
-const ColorSelector: React.FC<ColorSelectorProps> = ({
+const ColorSwatch: React.FC<ColorSwatchProps> = ({
   colors = [],
   selected,
   onSelect,
 }) => {
   return (<>
-    <div className='color-selector'>
+    <div className='color-swatch--container'>
       {colors.map((color, key) => (
         <div key={color + String(key)}
-          className='color-selector--cell'
+          className='color-swatch'
           style={{ backgroundColor: color }}
           onClick={() => onSelect(color)}
         >
-          {color === selected && <>&#x272A;</>}
+          {color === selected && <>&#x2605;</>}
         </div>
       ))}
     </div>
   </>);
 }
 
-export default ColorSelector;
+export default ColorSwatch;

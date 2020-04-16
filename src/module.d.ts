@@ -6,5 +6,11 @@ interface AvatarPartObject {
 }
 
 type AvatarParts = { [index in AvatarPartID]: AvatarPartObject[] };
-
+type AvatarPart = {
+  cIndex: number
+  fill: string
+}
 type Maybe<T> = T | undefined;
+
+type AvatarPartState = { [name in AvatarPartID]: AvatarPart }
+

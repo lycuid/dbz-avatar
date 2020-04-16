@@ -8,15 +8,15 @@ import Hairs from '../components/AvatarParts/hair';
 export const AVATAR_PARTS: AvatarParts = {
   face: Faces.map((face) => ({
     component: face,
-    defaultColors: ['#e8bb9e', '#708090', '#fa8072'],
+    defaultColors: ['#e8bb9e', '#fbd2c7', '#fecd3c', '#c9e6dc', '#0be881'],
   })),
   eyes: Eyes.map((eyes) => ({
     component: eyes,
-    defaultColors: ['#000000', '#00ffff', '#00ff00', '#ff0000'],
+    defaultColors: ['#000000', '#ffa801', '#00ff00', '#ff3f34'],
   })),
   nose: Noses.map((nose) => ({
     component: nose,
-    defaultColors: ['#000000'],
+    defaultColors: [],
   })),
   mouth: Mouths.map((mouth) => ({
     component: mouth,
@@ -24,7 +24,7 @@ export const AVATAR_PARTS: AvatarParts = {
   })),
   hair: Hairs.map((hair) => ({
     component: hair,
-    defaultColors: ['#000000', '#00ff00', '#0000ff', '#ff0000', '#708090', '#fa8072'],
+    defaultColors: ['#000000', '#ffdd59', '#6dbb58', '#708090', '#fa8072'],
   })),
 };
 
