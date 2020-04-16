@@ -28,6 +28,8 @@ export const AVATAR_PARTS: AvatarParts = {
   })),
 };
 
+export const AVATAR_PART_IDS = Object.keys(AVATAR_PARTS) as AvatarPartID[]
+
 export const BOUNDS = {
   face: [30, 40, 140, 140],
   eyes: [60, 100, 80, 80],
