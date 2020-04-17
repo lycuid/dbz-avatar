@@ -16,9 +16,12 @@ const AvatarImage: React.FC<AvatarImageProps> = () => {
 
   return (<>
     <div id={'avatar-image'}>
-      <svg viewBox='0 0 200 200'>
-        {/* <rect fill='#f6e58d' width={200} height={200} /> */}
-        {AVATAR_PART_IDS.map(insertAvatarPart)}
+      <svg viewBox='0 0 266 266'>
+        <circle cx={133} cy={133} r={133} fill='orange' />
+        <svg width='75%' height='75%' x={33} y={33} viewBox='0 0 200 200'>
+          {/* <rect fill='white' width={200} height={200} /> */}
+          {AVATAR_PART_IDS.map(insertAvatarPart)}
+        </svg>
       </svg>
     </div>
   </>);

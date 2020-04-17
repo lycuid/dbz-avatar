@@ -29,7 +29,7 @@ header {
   width: 100%;
   height: 35vh;
   padding: 25px;
-  background-color: #fff8ca;
+  background-color: #696969;
   box-sizing: border-box;
 }
 
@@ -38,16 +38,37 @@ main {
   flex: 1;
 }
 
-.retro {
-  border: 10px solid rgba(0, 0, 0, .75);
-  border-image:
-    url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(72, 84, 96)" /></svg>')
-    3 3 round space;
-  box-shadow: -5px -5px inset rgba(0, 0, 0, .125);
+/* reference: https://nostalgic-css.github.io/NES.css/ */
+.retro,
+.retro-btn {
+  position: relative;
+  border-color: var(--color-primary);
+  padding: 6px;
+  margin: 6px;
+  border-style: solid;
+  border-width: 4px;
+
+  border-image-slice: 3;
+  border-image-width: 3;
+  border-image-repeat: stretch;
+  border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(72, 84, 96)" /></svg>');
+  border-image-outset: 2;
 }
 
-.retro.selected {
-  box-shadow: 4px 4px inset rgba(0, 0, 0, .2);
+.retro-btn::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  bottom: -4px;
+  right: -4px;
+  box-shadow: inset -6px -6px rgba(0, 0, 0, .12);
+}
+
+.retro-btn.selected::after,
+.retro-btn:active::after {
+  background-color: #00000017;
+  box-shadow: inset 6px 6px rgba(0, 0, 0, .2);
 }
 
 .text-muted {

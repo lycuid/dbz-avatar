@@ -1,4 +1,4 @@
-.avatar-palette-container {
+.card-container {
   height: 50vh;
   margin: 20px 0;
   padding: 2em 5px;
@@ -13,19 +13,19 @@
   grid-template-rows: repeat(auto-fit, 250px);
 }
 
-.avatar-palette-container::-webkit-scrollbar {
+.card-container::-webkit-scrollbar {
   width: .5rem;
 }
 
-.avatar-palette-container::-webkit-scrollbar-thumb {
+.card-container::-webkit-scrollbar-thumb {
   border-radius: 50px;
   background-color: #ccc;
 }
 
-.avatar-palette-container::-webkit-scrollbar-thumb:hover {
+.card-container::-webkit-scrollbar-thumb:hover {
   background-color: #aaa;
 }
 
-.avatar-palette-container::-webkit-scrollbar-track {
+.card-container::-webkit-scrollbar-track {
   background-color: none;
 }

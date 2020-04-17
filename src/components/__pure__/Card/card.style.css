@@ -1,13 +1,12 @@
-.palette {
+.card {
   padding: .5em 10px 5px;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.palette-title {
+.card__title {
   position: absolute;
-  font-size: 1.25em;
   text-transform: uppercase;
 
   top: -1em;
@@ -16,9 +15,9 @@
   background-color: white;
 }
 
-.palette-body { flex: 1; }
+.card__body { flex: 1; }
 
-.palette-footer {
+.card__footer {
   height: 2em;
   display: flex;
   align-items: center;

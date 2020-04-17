@@ -3,7 +3,7 @@ import './index.css';
 
 import Head from '../components/head';
 import AvatarImage from '../components/AvatarImage/avatarImage.component';
-import AvatarPaletteContainer from '../components/AvatarPaletteContainer/avatarPaletteContainer.component';
+import CardContainer from '../components/CardContainer/cardContainer.component';
 
 import { AVATAR_PARTS } from '../configs';
 import { useStateReducer } from '../utils/hooks';
@@ -45,15 +45,8 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     <AppContext.Provider value={{ updateAvatar, getAvatarPart }}>
       <Head title='Home' />
       <div id='wrapper'>
-
-        <header className='retro'>
-          <AvatarImage />
-        </header>
-
-        <main className='container'>
-          <AvatarPaletteContainer />
-        </main>
-
+        <header><AvatarImage /></header>
+        <main className='container'><CardContainer /></main>
       </div>
     </AppContext.Provider>
   </>);
