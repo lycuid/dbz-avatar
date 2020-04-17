@@ -12,7 +12,7 @@ export const AVATAR_PARTS: AvatarParts = {
   })),
   eyes: Eyes.map((eyes) => ({
     component: eyes,
-    defaultColors: ['#000000', '#ffa801', '#00ff00', '#ff3f34'],
+    defaultColors: ['#000000', '#ffa801', '#328832', '#ff3f34'],
   })),
   nose: Noses.map((nose) => ({
     component: nose,

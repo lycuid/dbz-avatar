@@ -1,7 +1,7 @@
 import React, { useContext, useCallback } from 'react';
 import './avatarImage.style.css';
 import { AppContext } from '../../context';
-import { AVATAR_PARTS, AVATAR_PART_IDS } from '../../configs';
+import { AVATAR_PART_IDS } from '../../configs';
 
 
 interface AvatarImageProps { }
@@ -17,6 +17,7 @@ const AvatarImage: React.FC<AvatarImageProps> = () => {
   return (<>
     <div id={'avatar-image'}>
       <svg viewBox='0 0 200 200'>
+        {/* <rect fill='#f6e58d' width={200} height={200} /> */}
         {AVATAR_PART_IDS.map(insertAvatarPart)}
       </svg>
     </div>

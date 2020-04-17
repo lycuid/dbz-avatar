@@ -1,25 +1,19 @@
 .preview-image {
   box-sizing: border-box;
-  padding-top: 7px;
-  padding-right: 10px;
-  padding-left: 10px;
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  box-shadow:
-  -4px -4px 10px rgba(255, 255, 255, .85),
-  4px 4px 10px rgba(0, 0, 0, .2);
 }
 
 .preview-image svg {
-  height: 40px;
   width: 40px;
+  height: 40px;
 }
 
-.preview-image.selected {
-  box-shadow:
-    -4px -4px 10px rgba(255, 255, 255, .85) inset,
-    4px 4px 10px rgba(0, 0, 0, .2) inset;
-  border-radius: 4px;
-  padding-top: 10px;
+.preview-image.selected svg {
+  margin-top: 3px
 }

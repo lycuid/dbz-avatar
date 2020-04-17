@@ -17,16 +17,22 @@ const Palette: React.FC<PaletteProps> = ({
   children,
 }) => {
   return (<>
-    <div className='palette'>
-      <strong>{title.toUpperCase()}</strong>
-      <hr />
+    <div className='palette retro'>
+      <span className='palette-title'>{title.toUpperCase()}</span>
 
-      {children}
-      <hr />
+      <div className='palette-body'>
+        {children}
+      </div>
 
-      {selected &&
-        <ColorInput value={selected} name={title} id={title} onChange={onSelect} />
-      }
+      <hr />
+      <div className='palette-footer'>
+        {selected
+          ? <ColorInput value={selected} name={title} id={title} onChange={onSelect} />
+          : <label className='text-muted'>Color not supported</label>
+        }
+      </div>
+      <div style={{}}>
+      </div>
     </div>
   </>);
 }

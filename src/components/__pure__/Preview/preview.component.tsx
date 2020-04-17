@@ -9,10 +9,12 @@ interface PreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 const Preview: React.FC<PreviewProps> = ({
   selected = false,
   children,
+  className,
   ...props
 }) => {
   const classes = ['preview-image']
-    .concat(selected ? ['selected'] : []);
+    .concat(selected ? ['selected'] : [])
+    .concat(className ? [className] : []);
 
   return (<>
     <span {...props} className={classes.join(' ')}>

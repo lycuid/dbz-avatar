@@ -44,10 +44,15 @@ const IndexPage: React.FC<IndexPageProps> = () => {
   return (<>
     <AppContext.Provider value={{ updateAvatar, getAvatarPart }}>
       <Head title='Home' />
-      <div id='wrapper' className='container'>
+      <div id='wrapper'>
 
-        <AvatarImage />
-        <AvatarPaletteContainer />
+        <header className='retro'>
+          <AvatarImage />
+        </header>
+
+        <main className='container'>
+          <AvatarPaletteContainer />
+        </main>
 
       </div>
     </AppContext.Provider>

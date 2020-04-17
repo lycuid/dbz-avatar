@@ -6,7 +6,7 @@ import PreviewSelector from '../PreviewSelector/previewSelector.component';
 import ColorSwatch from '../__pure__/ColorSwatch/colorSwatch.component';
 
 import { AppContext } from '../../context';
-import { AVATAR_PARTS, AVATAR_PART_IDS, BOUNDS } from '../../configs';
+import { AVATAR_PART_IDS } from '../../configs';
 
 
 interface AvatarPaletteContainerProps { }
@@ -15,7 +15,7 @@ const AvatarPaletteContainer: React.FC<AvatarPaletteContainerProps> = () => {
   const { updateAvatar, getAvatarPart } = useContext(AppContext) as AvatarAppContext;
 
   return (<>
-    <div className={'palette-container'}>
+    <div className={'avatar-palette-container'}>
       {AVATAR_PART_IDS.map((partID, partIndex) => {
         const { defaultColors, fill } = getAvatarPart(partID);
 
