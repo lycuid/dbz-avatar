@@ -1,0 +1,33 @@
+footer {
+  width: 100%;
+  padding: 5px;
+  background-color: var(--color-primary);
+  border-top: 4px solid #000;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  box-sizing: border-box;
+  text-align: center;
+}
+
+footer,
+footer > * {
+  color: var(--color-bg-primary);
+}
+
+footer > span {
+  margin: 0 10px;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+footer > .heart {
+  color: red;
+}
+
+footer > .react-logo {
+  color: dodgerblue;
+  transform: rotate(90deg);
+}

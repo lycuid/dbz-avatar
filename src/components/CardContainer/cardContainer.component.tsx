@@ -20,15 +20,17 @@ const CardContainer: React.FC<CardContainerProps> = () => {
       {AVATAR_PART_IDS.map((partID, partIndex) => {
         const { defaultColors, fill } = getAvatarPart(partID);
 
-        const footer = useMemo(() => (fill
-          ? (<ColorInput
+        const footer = useMemo(() => {
+          if (fill) {
+            return (<ColorInput
               value={fill} name={partID} id={partID}
               onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
                 updateAvatar(partID, { fill: target.value });
               }}
             />)
-          : <label className='text-muted'>no color support</label>
-        ), [fill, partID, updateAvatar]);
+          }
+          return <label className='text-muted'>no color support</label>
+        }, [fill, partID, updateAvatar]);
 
         return (
           <Card key={partID + String(partIndex)} title={partID} footer={footer}>

@@ -1,11 +1,11 @@
 .card-container {
-  height: 50vh;
+  /* height: 50vh; */
   margin: 20px 0;
   padding: 2em 5px;
   box-sizing: border-box;
-
+/* 
   overflow: hidden;
-  overflow-y: auto;
+  overflow-y: auto; */
 
   display: grid;
   grid-gap: 20px;
