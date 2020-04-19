@@ -3,13 +3,12 @@ header {
   height: 35vh;
   padding: 25px;
   
-  background-color: #696969;
+  background-color: var(--color-bg-primary);
   box-sizing: border-box;
   position: sticky;
   top: 0;
   transition-duration: .2s;
 
   z-index: 100;
-  border-bottom: 4px solid #000;
 }
 

@@ -8,7 +8,7 @@ const Footer: React.FC<FooterProps> = () => {
   return (
     <footer>
       {'</> with '}
-      <span className='heart'>&#x2764;</span>
+      <span className='heart'>&hearts;</span>
       {' and '}
       <span className='react-logo'>&#x269B;</span>
     </footer>
