@@ -3,7 +3,7 @@ import './cardContainer.style.css';
 
 import Card from '../__pure__/Card/card.component';
 import PreviewSelector from '../PreviewSelector/previewSelector.component';
-import ColorSwatch from '../__pure__/ColorSwatch/colorSwatch.component';
+import SwatchContainer from '../SwatchContainer/swatchContainer.component';
 import ColorInput from '../__pure__/ColorInput/colorInput.component';
 
 import { AppContext } from '../../context';
@@ -36,7 +36,7 @@ const CardContainer: React.FC<CardContainerProps> = () => {
           <Card key={partID + String(partIndex)} title={partID} footer={footer}>
 
             <PreviewSelector partID={partID} />
-            <ColorSwatch
+            <SwatchContainer
               selected={fill}
               colors={defaultColors}
               onSelect={(color) => { updateAvatar(partID, { fill: color }); }}
