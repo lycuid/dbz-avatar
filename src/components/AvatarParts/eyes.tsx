@@ -5,9 +5,9 @@ interface AvatarEyesProps { fill: string }
 
 const Eyes1: React.FC<AvatarEyesProps> = ({ fill }) => {
   return (<>
-    <g fill='#FFF'>
+    <g fill='#ffffff'>
       <polygon points='67.5,130 70,140 95,140' />
-      <polygon fill='#FFF' points='132.5,130 130,140 105,140' />
+      <polygon fill='#ffffff' points='132.5,130 130,140 105,140' />
     </g>
     <g fill={fill} stroke={fill}>
       <path d='M62 128 L81.25 135 A2.25 3 0 0 0 86.75 137 L95 140 L95 139.5 L62 125 Z' />

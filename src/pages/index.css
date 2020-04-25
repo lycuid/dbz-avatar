@@ -16,10 +16,32 @@ html, body {
   background-color: var(--color-bg-primary);
 }
 
+button,
+a.retro-btn.as-btn {
+  cursor: pointer;
+  outline: none;
+  padding: .1em 2em!important;
+}
+
 hr {
   width: 90%;
   border-top: 1px solid var(--color-primary);
 }
+
+dialog {
+  margin-top: 20vh;
+  z-index: 110;
+}
+
+dialog::after {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 109;
+  background-color: rgba(0, 0, 0, .5);
+}
+
 
 /* reference: https://nostalgic-css.github.io/NES.css/ */
 .retro,

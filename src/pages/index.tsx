@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import './index.css';
 
 import Head from '../components/head';
@@ -14,7 +14,6 @@ import { AppContext } from '../context';
 interface IndexPageProps { }
 
 const IndexPage: React.FC<IndexPageProps> = () => {
-
   const [parts, dispatchParts] = useStateReducer<AvatarPartState>(
     (Object.keys(AVATAR_PARTS) as AvatarPartID[])
       .reduce((acc, key) => ({
