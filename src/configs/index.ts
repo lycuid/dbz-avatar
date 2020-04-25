@@ -37,3 +37,15 @@ export const BOUNDS = {
   mouth: [80, 140, 40, 40],
   hair: [5, 0, 185, 190],
 }
+
+export const SHORT_NAMES: { [k in ImageFormat]: string } = {
+  svg: 'svg',
+  png: 'png',
+  jpeg: 'jpg',
+};
+
+export const IMAGE_URIS: { [k in ImageFormat]: string } = {
+  svg: '',
+  png: '',
+  jpeg: '',
+};

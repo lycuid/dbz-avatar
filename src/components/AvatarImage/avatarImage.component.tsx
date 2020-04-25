@@ -6,7 +6,7 @@ import { AVATAR_PART_IDS } from '../../configs';
 
 interface AvatarImageProps { }
 
-const AvatarImage: React.FC<AvatarImageProps> = () => {
+const AvatarImage: React.ForwardRefExoticComponent<React.RefAttributes<SVGSVGElement> & AvatarImageProps> = React.forwardRef(({}, ref) => {
   const { getAvatarPart } = useContext(AppContext) as AvatarAppContext;
 
   const insertAvatarPart = useCallback((partID: AvatarPartID, index) => {
@@ -16,15 +16,14 @@ const AvatarImage: React.FC<AvatarImageProps> = () => {
 
   return (<>
     <div id={'avatar-image'}>
-      <svg viewBox='0 0 266 266'>
-        {/* <rect fill='white' width={266} height={266} /> */}
-        <circle fill='white' cx={133} cy={133} r={133} />
+      <svg viewBox='0 0 266 266' ref={ref}>
+        <rect fill='lightgreen' width={266} height={266} />
         <svg width='75%' height='75%' x={33} y={33} viewBox='0 0 200 200'>
           {AVATAR_PART_IDS.map(insertAvatarPart)}
         </svg>
       </svg>
     </div>
   </>);
-}
+});
 
 export default AvatarImage;

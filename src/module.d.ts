@@ -24,3 +24,6 @@ type AvatarAppContext = {
   }
 }
 
+type ImageFormat = 'svg' | 'png' | 'jpeg';
+
+type DownloadableImageFormats = { [k in ImageFormat]: string };

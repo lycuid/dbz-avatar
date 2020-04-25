@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const AppContext = createContext<Maybe<AvatarAppContext>>(undefined);
+export const AppContext = createContext<Partial<AvatarAppContext>>({});
