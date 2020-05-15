@@ -5,13 +5,13 @@ interface AvatarMouthProps { }
 
 const Mouth1: React.FC<AvatarMouthProps> = () => {
   return (<>
-    <path stroke='#000' fill='none' d='M95 162 Q105 155, 110 160' />
+    <path stroke='#000' fill='none' d='M120 187 Q130 180, 135 185' />
   </>);
 }
 
 const Mouth2: React.FC<AvatarMouthProps> = () => {
   return (<>
-    <path stroke='#000' fill='none' d='M95 162 Q105 162, 110 158' />
+    <path stroke='#000' fill='none' d='M120 187 Q130 187, 135 183' />
   </>);
 }
 

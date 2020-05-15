@@ -16,11 +16,8 @@ const AvatarImage: React.ForwardRefExoticComponent<React.RefAttributes<SVGSVGEle
 
   return (<>
     <div id={'avatar-image'}>
-      <svg viewBox='0 0 266 266' ref={ref}>
-        <rect fill='lightgreen' width={266} height={266} />
-        <svg width='75%' height='75%' x={33} y={33} viewBox='0 0 200 200'>
-          {AVATAR_PART_IDS.map(insertAvatarPart)}
-        </svg>
+      <svg viewBox='0 0 250 250' ref={ref}>
+        {AVATAR_PART_IDS.map(insertAvatarPart)}
       </svg>
     </div>
   </>);

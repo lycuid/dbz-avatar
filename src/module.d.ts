@@ -1,4 +1,4 @@
-type AvatarPartID = 'face' | 'eyes' | 'nose' | 'mouth' | 'hair';
+type AvatarPartID = 'face' | 'eyes' | 'nose' | 'mouth' | 'hair' | 'background';
 
 interface AvatarPartObject {
   component: React.FC<any>,
