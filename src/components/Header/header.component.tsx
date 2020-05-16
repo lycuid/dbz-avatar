@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './header.style.css';
-
-// @ts-ignore
-import background from '../../images/background.svg';
+import StyledHeader, { Label, DownloadContainer, ModalContent, ModalCloseButton, DownloadButtonsContainer } from './header.style';
 
 import AvatarImage from '../AvatarImage/avatarImage.component';
 import Modal from '../__pure__/Modal/modal.component';
@@ -12,35 +9,22 @@ import { getSVGDataUri, getImageDataUri, getSerializedSVGString } from '../../ut
 import { SHORT_NAMES, IMAGE_URIS } from '../../configs';
 
 
-const defaultStyle = { backgroundImage: `url(${background})` };
-
 interface HeaderProps { }
 
 const Header: React.FC<HeaderProps> = () => {
   const avatarRef = useRef<SVGSVGElement>(null);
 
-  const [style, setStyle] = useState<any>(defaultStyle);
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const [downloadDialogOpen, setDownloadDialogOpen] = useState<boolean>(false);
 
   const [dataUri, dispatchDataUri] = useStateReducer<DownloadableImageFormats>(IMAGE_URIS);
   const [imageSize, setimageSize] = useState<Maybe<number>>(100);
 
   useEffect(() => {
-    const scroll = () => {
-      setStyle(
-        window.scrollY >= 70 ?
-        {
-          height: '25vh',
-          padding: '.5em',
-          marginBottom: 'calc(1em + 10vh)',
-          borderBottom: '4px solid #000',
-          backgroundColor: 'var(--color-bg-secondary)',
-        } : defaultStyle
-      );
-    }
+    const scrollListener = () => { setScrolled(window.scrollY >= 70); }
 
-    document.addEventListener('scroll', scroll);
-    return () => document.removeEventListener('scroll', scroll);
+    document.addEventListener('scroll', scrollListener);
+    return () => document.removeEventListener('scroll', scrollListener);
   }, []);
 
   useEffect(() => {
@@ -67,18 +51,9 @@ const Header: React.FC<HeaderProps> = () => {
   }, [downloadDialogOpen, imageSize]);
 
   return (
-    <header style={style}>
-      <div className='download-container'>
-        <label style={{
-          margin: '0 1rem',
-          border: '2px solid var(--color-primary)',
-          backgroundColor: 'var(--color-primary)',
-          color: 'var(--color-bg-primary)',
-          paddingLeft: '.5rem',
-          display: 'grid',
-          gridTemplateColumns: 'auto minmax(0, auto)',
-          alignItems: 'center',
-        }}>
+    <StyledHeader scrolled={scrolled}>
+      <DownloadContainer>
+        <Label>
           size 
           <input
             type='number'
@@ -87,25 +62,25 @@ const Header: React.FC<HeaderProps> = () => {
             style={{ padding: '.5rem', border: 'none', outline: 'none', marginLeft: '.5rem' }}
             onChange={({ target }) => { setimageSize(parseInt(target.value, 10) || undefined) }}
           />
-        </label>
+        </Label>
         <button
           type='button'
           className='retro-btn primary'
           onClick={() => { setDownloadDialogOpen(true); }}
         >Download</button>
-      </div>
+      </DownloadContainer>
 
       <AvatarImage ref={avatarRef} />
 
       <Modal id='image-download-modal' show={downloadDialogOpen} closeFunc={() => { setDownloadDialogOpen(false); }}>
-        <div className='retro content' style={{ padding: '2em' }}>
-          <span
-            className='modal-close-button retro-btn'
+        <ModalContent className='retro'>
+          <ModalCloseButton
+            className='retro-btn'
             onClick={() => { setDownloadDialogOpen(false); }}
           >
             &times;
-          </span>
-          <div className='download-buttons-container'>
+          </ModalCloseButton>
+          <DownloadButtonsContainer>
             {(dataUri.svg?.length && dataUri.png?.length && dataUri.jpeg?.length) ?
               (Object.keys(dataUri) as ImageFormat[])
                 .map((type) => (
@@ -117,10 +92,10 @@ const Header: React.FC<HeaderProps> = () => {
                 )) : (
               <div>Preparing to export...please wait!.</div>
             )}
-          </div>
-        </div>
+          </DownloadButtonsContainer>
+        </ModalContent>
       </Modal>
-    </header>
+    </StyledHeader>
   );
 }
 
