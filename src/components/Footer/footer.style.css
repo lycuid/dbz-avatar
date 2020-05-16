@@ -13,7 +13,7 @@ footer {
 }
 
 footer,
-footer > * {
+footer * {
   color: var(--color-bg-primary);
 }
 
@@ -24,13 +24,4 @@ footer > span {
   margin-bottom: 4px;
   font-size: 1.5em;
   line-height: .75em;
-}
-
-footer > .heart {
-  /* color: red; */
-}
-
-footer > .react-logo {
-  /* color: dodgerblue; */
-  transform: rotate(90deg);
 }
