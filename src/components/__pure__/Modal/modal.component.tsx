@@ -10,7 +10,7 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
  
 const Modal: React.FC<ModalProps> = ({
   show = false,
-  opacity = .6,
+  opacity = .75,
   closeFunc,
   children,
   ...rest
@@ -20,7 +20,7 @@ const Modal: React.FC<ModalProps> = ({
   }, [closeFunc]);
 
   const style = useMemo(() => ({
-    backgroundColor: `rgba(0, 0, 0, ${opacity})`,
+    backgroundColor: `rgba(255, 255, 255, ${opacity})`,
   }), [opacity]);
 
   useEffect(() => {
