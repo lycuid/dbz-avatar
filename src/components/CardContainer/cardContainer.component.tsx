@@ -13,24 +13,24 @@ import { AVATAR_PART_IDS } from '../../configs';
 interface CardContainerProps { }
 
 const CardContainer: React.FC<CardContainerProps> = () => {
-  const { updateAvatar, getAvatarPart } = useContext(AppContext) as AvatarAppContext;
+  const { avatarPart } = useContext(AppContext) as AvatarAppContext;
 
   return (<>
     <div className={'card-container'}>
       {AVATAR_PART_IDS.map((partID, partIndex) => {
-        const { defaultColors, fill } = getAvatarPart(partID);
+        const { defaultColors, fill } = avatarPart.get(partID);
 
         const footer = useMemo(() => {
           if (fill) {
             return (<ColorInput
               value={fill} name={partID} id={partID}
               onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => {
-                updateAvatar(partID, { fill: target.value });
+                avatarPart.update(partID, { fill: target.value });
               }}
             />)
           }
           return <label className='text-muted'>no color support</label>
-        }, [fill, partID, updateAvatar]);
+        }, [fill, partID, avatarPart]);
 
         return (
           <Card key={partID + String(partIndex)} title={partID} footer={footer}>
@@ -39,7 +39,7 @@ const CardContainer: React.FC<CardContainerProps> = () => {
             <SwatchContainer
               selected={fill}
               colors={defaultColors}
-              onSelect={(color) => { updateAvatar(partID, { fill: color }); }}
+              onSelect={(color) => { avatarPart.update(partID, { fill: color }); }}
             />
           </Card>
         );

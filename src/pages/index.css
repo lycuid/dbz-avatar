@@ -1,6 +1,8 @@
 :root {
   --color-primary: #485460;
-  --color-bg-primary: white;
+
+  --color-bg-primary: #dfdbe5;
+  --color-bg-secondary: #ffffff;
 }
 
 * {
@@ -13,7 +15,11 @@ html, body {
   padding: 0;
   margin: 0;
   height: 100vh;
-  background-color: var(--color-bg-primary);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, purple, tomato, salmon, yellow, lightgreen, green);
 }
 
 button,
@@ -21,6 +27,11 @@ a.retro-btn.as-btn {
   cursor: pointer;
   outline: none;
   padding: .1em 2em!important;
+}
+
+.primary {
+  background-color: #70A1FF!important;
+  color: #FFFFFF;
 }
 
 hr {
@@ -48,10 +59,10 @@ dialog::after {
 .retro-btn {
   position: relative;
   border-color: var(--color-primary);
-  padding: 6px;
   margin: 6px;
   border-style: solid;
   border-width: 4px;
+  background-color: var(--color-bg-secondary);
 
   border-image-slice: 3;
   border-image-width: 3;

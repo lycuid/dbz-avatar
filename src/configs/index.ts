@@ -3,9 +3,14 @@ import Eyes from '../components/AvatarParts/eyes';
 import Noses from '../components/AvatarParts/nose';
 import Mouths from '../components/AvatarParts/mouth';
 import Hairs from '../components/AvatarParts/hair';
+import Backgrounds from '../components/AvatarParts/background';
 
 
 export const AVATAR_PARTS: AvatarParts = {
+  background: Backgrounds.map((background) => ({
+    component: background,
+    defaultColors: ['#6dbb58', '#fa8072', '#000000', '#ffdd59', '#708090'],
+  })),
   face: Faces.map((face) => ({
     component: face,
     defaultColors: ['#e8bb9e', '#fbd2c7', '#fecd3c', '#c9e6dc', '#0be881'],
@@ -31,11 +36,12 @@ export const AVATAR_PARTS: AvatarParts = {
 export const AVATAR_PART_IDS = Object.keys(AVATAR_PARTS) as AvatarPartID[]
 
 export const BOUNDS = {
-  face: [30, 40, 140, 140],
-  eyes: [60, 100, 80, 80],
-  nose: [90, 140, 20, 20],
-  mouth: [80, 140, 40, 40],
-  hair: [5, 0, 185, 190],
+  face: [55, 65, 140, 140],
+  eyes: [85, 125, 80, 80],
+  nose: [115, 165, 20, 20],
+  mouth: [105, 165, 40, 40],
+  hair: [30, 25, 185, 190],
+  background: [0, 0, 250, 250],
 }
 
 export const SHORT_NAMES: { [k in ImageFormat]: string } = {

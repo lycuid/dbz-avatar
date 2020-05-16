@@ -7,12 +7,12 @@ import { AVATAR_PART_IDS } from '../../configs';
 interface AvatarImageProps { }
 
 const AvatarImage: React.ForwardRefExoticComponent<React.RefAttributes<SVGSVGElement> & AvatarImageProps> = React.forwardRef(({}, ref) => {
-  const { getAvatarPart } = useContext(AppContext) as AvatarAppContext;
+  const { avatarPart } = useContext(AppContext) as AvatarAppContext;
 
   const insertAvatarPart = useCallback((partID: AvatarPartID, index) => {
-    const { component, fill } = getAvatarPart(partID);
+    const { component, fill } = avatarPart.get(partID);
     return (<React.Fragment key={partID + String(index)}>{component({ fill })}</React.Fragment>);
-  }, [getAvatarPart]);
+  }, [avatarPart]);
 
   return (<>
     <div id={'avatar-image'}>

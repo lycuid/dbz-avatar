@@ -48,7 +48,6 @@ export const getImageDataUri = (
     if (prevUri) { w.revokeObjectURL(prevUri); }
   });
 
-
   const svgUri = `data:image/svg+xml;base64,${unicode2b64(svgString)}`;
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d') as CanvasRenderingContext2D;

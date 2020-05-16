@@ -10,15 +10,15 @@ import Preview from '../__pure__/Preview/preview.component';
 interface PreviewSelectorProps { partID: AvatarPartID }
 
 const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
-  const { updateAvatar, getAvatarPart } = useContext(AppContext) as AvatarAppContext;
+  const { avatarPart } = useContext(AppContext) as AvatarAppContext;
 
-  const { cIndex, fill } = useMemo(() => getAvatarPart(partID), [getAvatarPart]);
+  const { id, fill } = useMemo(() => avatarPart.get(partID), [avatarPart]);
   const partsToPreview = useMemo(() => AVATAR_PARTS[partID], [partID]);
 
   return (<>
     <div className='preview-selector'>
       {partsToPreview.map(({ component }, previewIndex) => {
-        const isSelected = cIndex === previewIndex;
+        const isSelected = id === previewIndex;
         return (
           <Preview
             key={partID + String(previewIndex)}
@@ -26,7 +26,7 @@ const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
             selected={isSelected}
             onClick={() => {
               if (!isSelected) {
-                updateAvatar(partID, { cIndex: previewIndex });
+                avatarPart.update(partID, { id: previewIndex });
               }
             }}
           >
