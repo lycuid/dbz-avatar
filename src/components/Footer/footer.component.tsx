@@ -1,17 +1,17 @@
 import React from 'react';
-import './footer.style.css';
+import StyledFooter from './footer.style';
 
 
 interface FooterProps { }
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <footer>
+    <StyledFooter>
       <small>
         {'Artwork and Code by'}&nbsp;
         <a href='https://abhishek-kdm.github.io' target='_blank'>abhishek-kdm</a>
       </small>
-    </footer>
+    </StyledFooter>
   )
 }
 
