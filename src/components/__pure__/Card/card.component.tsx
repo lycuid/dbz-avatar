@@ -1,7 +1,5 @@
 import React from 'react';
-import './card.style.css';
-
-import ColorInput from '../ColorInput/colorInput.component';
+import StyledCard, { CardTitle, CardBody, CardFooter } from './card.style';
 
 
 interface CardProps {
@@ -15,12 +13,12 @@ const Card: React.FC<CardProps> = ({
   footer,
 }) => {
   return (<>
-    <div className='card retro'>
-      <span className='card__title'>{title.toUpperCase()}</span>
-      <div className='card__body'>{children}</div>
+    <StyledCard as='div'>
+      <CardTitle>{title.toUpperCase()}</CardTitle>
+      <CardBody>{children}</CardBody>
       <hr />
-      <div className='card__footer'>{footer}</div>
-    </div>
+      <CardFooter>{footer}</CardFooter>
+    </StyledCard>
   </>);
 }
 

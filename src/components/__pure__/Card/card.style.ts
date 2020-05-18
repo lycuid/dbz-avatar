@@ -1,13 +1,17 @@
-.card {
+import styled from 'styled-components';
+import { Retro } from '../../../style/global';
+
+
+const StyledCard = styled(Retro)`
   padding: .5em 10px 5px;
   display: flex;
   flex-direction: column;
   position: relative;
 
   background-color: var(--color-bg-secondary);
-}
+`;
 
-.card__title {
+export const CardTitle = styled.span`
   position: absolute;
   text-transform: uppercase;
 
@@ -17,13 +21,17 @@
 
   border-top: 4px solid var(--color-primary);
   background-color: var(--color-bg-secondary);
-}
+`;
 
-.card__body { flex: 1; }
+export const CardBody = styled.div`
+  flex: 1;
+`;
 
-.card__footer {
+export const CardFooter = styled.div`
   height: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+`;
+
+export default StyledCard;
