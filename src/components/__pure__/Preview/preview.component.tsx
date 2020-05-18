@@ -1,26 +1,13 @@
 import React from 'react';
-import './preview.style.css';
+import StyledPreview from './preview.style';
 
 
 interface PreviewProps extends React.HTMLAttributes<HTMLDivElement> {
-  selected?: boolean
+  selected: boolean
 }
 
-const Preview: React.FC<PreviewProps> = ({
-  selected = false,
-  children,
-  className,
-  ...props
-}) => {
-  const classes = ['preview-image']
-    .concat(selected ? ['selected'] : [])
-    .concat(className ? [className] : []);
-
-  return (<>
-    <span {...props} className={classes.join(' ')}>
-      {children}
-    </span>
-  </>);
-}
+const Preview: React.FC<PreviewProps> = (props) => (
+  <StyledPreview as='div' {...props} />
+);
 
 export default Preview;
