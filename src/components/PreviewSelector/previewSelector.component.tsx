@@ -22,7 +22,6 @@ const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
         return (
           <Preview
             key={partID + String(previewIndex)}
-            className='retro-btn'
             selected={isSelected}
             onClick={() => {
               if (!isSelected) {

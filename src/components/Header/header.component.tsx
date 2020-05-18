@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import StyledHeader, { Label, DownloadContainer, ModalContent, ModalCloseButton, DownloadButtonsContainer } from './header.style';
+import StyledHeader, { LabelledInput, DownloadContainer, ModalContent, ModalCloseButton, DownloadButtonsContainer } from './header.style';
+import { RetroButton } from '../../style/global';
 
 import AvatarImage from '../AvatarImage/avatarImage.component';
 import Modal from '../__pure__/Modal/modal.component';
@@ -53,29 +54,28 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <StyledHeader scrolled={scrolled}>
       <DownloadContainer>
-        <Label>
+        <LabelledInput>
           size 
           <input
             type='number'
             min={0}
             value={imageSize || ''}
-            style={{ padding: '.5rem', border: 'none', outline: 'none', marginLeft: '.5rem' }}
             onChange={({ target }) => { setimageSize(parseInt(target.value, 10) || undefined) }}
           />
-        </Label>
-        <button
-          type='button'
-          className='retro-btn primary'
+        </LabelledInput>
+        <RetroButton
+          as='button'
+          className='primary'
           onClick={() => { setDownloadDialogOpen(true); }}
-        >Download</button>
+        >Download</RetroButton>
       </DownloadContainer>
 
       <AvatarImage ref={avatarRef} />
 
       <Modal id='image-download-modal' show={downloadDialogOpen} closeFunc={() => { setDownloadDialogOpen(false); }}>
-        <ModalContent className='retro'>
+        <ModalContent as='div'>
           <ModalCloseButton
-            className='retro-btn'
+            as='button'
             onClick={() => { setDownloadDialogOpen(false); }}
           >
             &times;
@@ -84,11 +84,11 @@ const Header: React.FC<HeaderProps> = () => {
             {(dataUri.svg?.length && dataUri.png?.length && dataUri.jpeg?.length) ?
               (Object.keys(dataUri) as ImageFormat[])
                 .map((type) => (
-                  <a key={type}
-                    className='retro-btn as-btn'
+                  <RetroButton as='a'
+                    key={type}
                     href={dataUri[type]}
                     download={`avatar.${SHORT_NAMES[type]}`}
-                  >{SHORT_NAMES[type]}</a>
+                  >{SHORT_NAMES[type]}</RetroButton>
                 )) : (
               <div>Preparing to export...please wait!.</div>
             )}

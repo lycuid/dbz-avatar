@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-// @ts-ignore
-import background from '../../images/background.svg';
-
+import { Retro, RetroButton } from '../../style/global';
 
 const StyledHeader = styled.header<{ scrolled: boolean }>`
   width: 100%;
@@ -19,10 +17,13 @@ const StyledHeader = styled.header<{ scrolled: boolean }>`
   ${({ scrolled }) => scrolled
     ? `
       padding: .5em;
-      margin-bottom: calc(1em);
+      margin-bottom: calc(1em + 25px);
       border-bottom: 4px solid #000;
-      background-color: var(--color-bg-secondary);`
-    : `background-image: url(${background})`}
+      background-color: var(--color-bg-secondary);
+      grid-gap: 0;`
+    : `
+      grid-gap: 25px;
+    `}
 `;
 
 export const DownloadContainer = styled.div`
@@ -32,7 +33,7 @@ export const DownloadContainer = styled.div`
   grid-template-columns: auto auto;
 `;
 
-export const Label = styled.label`
+export const LabelledInput = styled.label`
   margin: 0 1rem;
   border: 2px solid var(--color-primary);
   background-color: var(--color-primary);
@@ -41,9 +42,16 @@ export const Label = styled.label`
   display: grid;
   grid-template-columns: auto minmax(0, auto);
   align-items: center;
+
+  input {
+    padding: .5rem;
+    border: none;
+    outline: none;
+    margin-left: .5rem;
+  }
 `;
 
-export const ModalContent = styled.div`
+export const ModalContent = styled(Retro)`
   position: relative;
   padding: 2rem;
 `;
@@ -56,20 +64,20 @@ export const DownloadButtonsContainer = styled.div`
   grid-template-columns: repeat(auto - fit, 120px);
 `;
 
-export const ModalCloseButton = styled.button`
+export const ModalCloseButton = styled(RetroButton)`
   position: absolute;
   width: 25px;
   height: 25px;
   top: -25px;
   right: -25px;
   color: #ffffff;
-  cursor: pointer;
   background-color: #FF6B81;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   font-weight: 700;
+  padding: 0%;
 `;
 
 export default StyledHeader;
