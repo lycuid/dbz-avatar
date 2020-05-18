@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import './index.css';
+import GlobalStyle, { Wrapper } from '../style/global';
 
 import Head from '../components/head';
 import Header from '../components/Header/header.component';
@@ -43,12 +43,13 @@ const IndexPage: React.FC<IndexPageProps> = () => {
 
   return (<>
     <AppContext.Provider value={{ avatarPart }}>
+      <GlobalStyle />
       <Head title='Home' />
-      <div id='wrapper'>
+      <Wrapper>
         <Header />
         <Main />
         <Footer />
-      </div>
+      </Wrapper>
     </AppContext.Provider>
   </>);
 }
