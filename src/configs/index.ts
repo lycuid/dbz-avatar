@@ -6,34 +6,34 @@ import Hairs from '../components/AvatarParts/hair';
 import Backgrounds from '../components/AvatarParts/background';
 
 
-export const AVATAR_PARTS: AvatarParts = {
-  background: Backgrounds.map((background) => ({
-    component: background,
+export const AVATAR_PARTS = new Map<AvatarPartID, AvatarPartObject>([
+  ['background', {
+    components: Backgrounds,
     defaultColors: ['#6dbb58', '#fa8072', '#000000', '#ffdd59', '#708090'],
-  })),
-  face: Faces.map((face) => ({
-    component: face,
+  }],
+  ['face', {
+    components: Faces,
     defaultColors: ['#e8bb9e', '#fbd2c7', '#fecd3c', '#c9e6dc', '#0be881'],
-  })),
-  eyes: Eyes.map((eyes) => ({
-    component: eyes,
+  }],
+  ['eyes', {
+    components: Eyes,
     defaultColors: ['#000000', '#ffa801', '#328832', '#ff3f34'],
-  })),
-  nose: Noses.map((nose) => ({
-    component: nose,
+  }],
+  ['nose', {
+    components: Noses,
     defaultColors: [],
-  })),
-  mouth: Mouths.map((mouth) => ({
-    component: mouth,
+  }],
+  ['mouth', {
+    components: Mouths,
     defaultColors: [],
-  })),
-  hair: Hairs.map((hair) => ({
-    component: hair,
+  }],
+  ['hair', {
+    components: Hairs,
     defaultColors: ['#000000', '#ffdd59', '#6dbb58', '#708090', '#fa8072'],
-  })),
-};
+  }],
+]);
 
-export const AVATAR_PART_IDS = Object.keys(AVATAR_PARTS) as AvatarPartID[]
+export const AVATAR_PART_IDS = Array.from(AVATAR_PARTS.keys());
 
 export const BOUNDS = {
   face: [55, 65, 140, 140],

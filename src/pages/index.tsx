@@ -18,9 +18,9 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     AVATAR_PART_IDS.reduce((acc, key) => ({
       ...acc,
       [key]: {
-        id: AVATAR_PARTS[key].length > 0 ? 0 : null,
-        fill: AVATAR_PARTS[key].length > 0 ?
-          (AVATAR_PARTS[key][0].defaultColors[0]) || null : null
+        id: AVATAR_PARTS.get(key)?.components?.length ? 0 : null,
+        fill: AVATAR_PARTS.get(key)?.components?.length ?
+          (AVATAR_PARTS.get(key)?.defaultColors[0] || null) : null
       }
     }), {}) as AvatarPartState
   );
@@ -29,7 +29,9 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     // returns the selected `part` component, default colors and selected color.
     get: (partID) => {
       const { id, fill } = parts[partID];
-      return { ...AVATAR_PARTS[partID][id], id, fill};
+      const { components, defaultColors } = AVATAR_PARTS.get(partID) as AvatarPartObject;
+
+      return { component: components[id], defaultColors, id, fill};
     },
     // updates `avatar image` based on AvatarPartID.
     update: (name, newState) => {
