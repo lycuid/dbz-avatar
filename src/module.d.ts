@@ -9,17 +9,19 @@ type AvatarPartID
   | 'background';
 
 interface AvatarPartObject {
-  component: React.FC<any>,
+  components: React.FC<any>[],
   defaultColors: string[]
 }
 interface AvatarPartSelection {
   id: number
   fill: string
 }
-interface AvatarpartComplete
-  extends AvatarPartObject, AvatarPartSelection { }
+interface AvatarpartComplete extends AvatarPartSelection {
+  component: React.FC<any>,
+  defaultColors: string[]
+}
 
-type AvatarParts = { [name in AvatarPartID]: AvatarPartObject[] };
+type AvatarParts = { [name in AvatarPartID]: AvatarPartObject };
 type AvatarPartState = { [name in AvatarPartID]: AvatarPartSelection }
 
 
