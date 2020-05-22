@@ -82,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
 
     background-repeat: repeat;
-    background-color: #a29bfe;
+    background-color: #70a1ff;
     background-image: url(${background});
   }
 
@@ -95,11 +95,11 @@ const GlobalStyle = createGlobalStyle`
   a${RetroButton} {
     cursor: pointer;
     outline: none;
-    padding: .1em 2em!important;
+    padding: .1em 2em;
   }
 
   .primary {
-    background-color: #70a1ff!important;
+    background-color: #ff6b81;
     color: #ffffff;
   }
 

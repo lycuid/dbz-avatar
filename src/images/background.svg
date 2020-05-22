@@ -1,18 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 100 100">
-  <g fill="#6c5ce7" fill-opacity="0.25" stroke="#6c5ce7" stroke-width=".25">
+<svg xmlns="http://www.w3.org/2000/svg" width="675" height="675" viewBox="0 0 100 100">
+  <g fill="#F79F4B" fill-opacity="0.75">
     <circle cx="11" cy="11" r="7" />
     <circle cx="63" cy="5" r="5" />
-    <circle cx="40" cy="17" r="4" />
+    <circle cx="25" cy="37" r="4" />
     <circle cx="59" cy="36" r="7" />
-    <circle cx="89" cy="45" r="5" />
-    <circle cx="32" cy="58" r="5" />
-    <circle cx="57" cy="66" r="4" />
-    <circle cx="12" cy="82" r="4" />
+    <circle cx="62" cy="68" r="5" />
+    <circle cx="7" cy="82" r="4" />
     <circle cx="86" cy="87" r="5" />
   </g>
-  <g fill="white" fill-opacity="0.25">
-    <path d="M10 8 L15 8 L12 12 L12 6 L15 11 Z" />
-    <!-- 59 36 -->
-    <path d="M53 38 L57 37 L55 41 L54 36 L58 40 Z" />
+  <g fill="#F1403D" fill-opacity="0.5">
+    <!-- 1 -->
+    <!-- <path d="M10 8 L15 8 L12 12 L12 6 L15 11 Z" /> -->
+    <path d="M8 6.5 L9.5 5.5 L9 7.25 L8.5 5.5 L10.5 6.75 Z" />
+    <path d="M10.5 5.5 L12.5 5 L11.5 6.5 L11.25 4.75 L13 6.25 Z" />
+    <path d="M10.75 9 L12.25 7.75 L11.75 9.75 L11 8 L13 9 Z" />
+    <path d="M13.5 7.75 L15.25 7 L14.75 8.75 L14 7 L16 8 Z" />
+
+    <!-- 2 -->
+    <path d="M62 4 L64 4 L62.5 5.5 L63 3.25 L63.75 5.75 Z" />
+
+    <!-- 3 -->
+    <path d="M24 36 L26 36 L24.5 37.5 L25 35.25 L25.75 37.75 Z" />
+
+    <!-- 4 -->
+    <path d="M52.75 36 L54.5 36 L53 37 L53.5 35 L54 37.5 Z" />
+    <path d="M55.75 35 L57.5 35 L56 36.5 L56.5 34 L57 36.5 Z" />
+    <path d="M54.75 38 L56.5 38 L55 39 L55.5 37 L56 39.5 Z" />
+
   </g>
 </svg>

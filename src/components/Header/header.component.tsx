@@ -63,36 +63,39 @@ const Header: React.FC<HeaderProps> = () => {
             onChange={({ target }) => { setimageSize(parseInt(target.value, 10) || undefined) }}
           />
         </LabelledInput>
+
         <RetroButton
           as='button'
           className='primary'
           onClick={() => { setDownloadDialogOpen(true); }}
-        >Download</RetroButton>
+        >
+          Download
+        </RetroButton>
       </DownloadContainer>
 
       <AvatarImage ref={avatarRef} />
 
-      <Modal id='image-download-modal' show={downloadDialogOpen} closeFunc={() => { setDownloadDialogOpen(false); }}>
+      <Modal show={downloadDialogOpen} closeFunc={() => { setDownloadDialogOpen(false); }}>
         <ModalContent as='div'>
           <ModalCloseButton
             as='button'
+            className='primary'
             onClick={() => { setDownloadDialogOpen(false); }}
           >
             &times;
           </ModalCloseButton>
-          <DownloadButtonsContainer>
-            {(dataUri.svg?.length && dataUri.png?.length && dataUri.jpeg?.length) ?
-              (Object.keys(dataUri) as ImageFormat[])
-                .map((type) => (
-                  <RetroButton as='a'
-                    key={type}
-                    href={dataUri[type]}
-                    download={`avatar.${SHORT_NAMES[type]}`}
-                  >{SHORT_NAMES[type]}</RetroButton>
-                )) : (
-              <div>Preparing to export...please wait!.</div>
-            )}
-          </DownloadButtonsContainer>
+
+          {Object.values(dataUri).map((x) => x?.length > 0).every(Boolean) ?
+            (<DownloadButtonsContainer>
+              {(Object.keys(dataUri) as ImageFormat[]).map((type) => (
+                <RetroButton as='a' key={type} href={dataUri[type]} download={`avatar.${SHORT_NAMES[type]}`}>
+                  {SHORT_NAMES[type]}
+                </RetroButton>
+              ))}
+            </DownloadButtonsContainer>) :
+            (<div>Preparing to export...please wait!.</div>)
+          }
+
         </ModalContent>
       </Modal>
     </StyledHeader>

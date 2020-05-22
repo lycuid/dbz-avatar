@@ -54,30 +54,34 @@ export const LabelledInput = styled.label`
 export const ModalContent = styled(Retro)`
   position: relative;
   padding: 2rem;
+  display: grid;
+  grid-template-rows: 1fr;
 `;
 
 export const DownloadButtonsContainer = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
+  grid-template-columns: repeat(auto-fit, 120px);
+
   width: 100%;
-  grid-template-columns: repeat(auto - fit, 120px);
 `;
 
 export const ModalCloseButton = styled(RetroButton)`
   position: absolute;
-  width: 25px;
-  height: 25px;
-  top: -25px;
-  right: -25px;
-  color: #ffffff;
-  background-color: #FF6B81;
-  display: flex;
+  width: 2rem;
+  height: 2rem;
+  top: -1.5rem;
+  right: -1.5rem;
+  padding: 0;
+
+  display: grid;
   align-items: center;
   justify-content: center;
+
   font-size: 1.5rem;
+  line-height: 1.5rem;
   font-weight: 700;
-  padding: 0%;
 `;
 
 export default StyledHeader;
