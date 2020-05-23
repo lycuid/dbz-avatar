@@ -8,27 +8,34 @@ type AvatarPartID
   | 'hair'
   | 'background';
 
-interface AvatarPartObject {
-  readonly components: React.FC<any>[]
-  readonly previewGroup?: string
-  readonly defaultColors: string[]
-}
-interface AvatarPartSelection {
-  id: number
-  fill: string
-}
-interface AvatarpartComplete extends AvatarPartSelection {
-  component: React.FC<any>,
-  defaultColors: string[]
+
+/* avatar parts for Queue being stacked on to create the final Image */
+type AvatarPartQueueItem = {
+  id: AvatarPartID
+  components: React.FC<any>[]
 }
 
-type AvatarParts = { [name in AvatarPartID]: AvatarPartObject };
-type AvatarPartState = { [name in AvatarPartID]: AvatarPartSelection }
+type AvatarPartConfig = {
+  defaultColors: string[],
+  previewBounds: [number, number, number, number]
+}
+type AvatarPartConfigs = { [n in AvatarPartID]: AvatarPartConfig }
+
+
+interface AvatarPartConfigSelected {
+  index: number
+  fill: string
+}
+
+type AvatarParts = { [n in AvatarPartID]: AvatarPartConfigSelected }
+
+interface AvatarPartComplete
+  extends AvatarPartConfig, AvatarPartConfigSelected { }
 
 
 type AvatarPartHandler = {
-  get: (partID: AvatarPartID) => AvatarpartComplete,
-  update: (name: AvatarPartID, state: Partial<AvatarPartSelection>) => void,
+  get: (partID: AvatarPartID) => AvatarPartComplete,
+  update: (name: AvatarPartID, state: Partial<AvatarPartConfigSelected>) => void,
 }
 type AvatarAppContext = { avatarPart: AvatarPartHandler }
 

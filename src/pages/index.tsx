@@ -6,7 +6,7 @@ import Header from '../components/Header/header.component';
 import Main from '../components/Main/main.component';
 import Footer from '../components/Footer/footer.component';
 
-import { AVATAR_PARTS, AVATAR_PART_IDS } from '../configs';
+import { AVATAR_PART_IDS, AVATAR_PART_CONFIGS, AVATAR_PARTS_QUEUE } from '../configs';
 import { useStateReducer } from '../utils/hooks';
 import { AppContext } from '../context';
 
@@ -14,32 +14,31 @@ import { AppContext } from '../context';
 interface IndexPageProps { }
 
 const IndexPage: React.FC<IndexPageProps> = () => {
-  const [parts, dispatchParts] = useStateReducer<AvatarPartState>(
-    AVATAR_PART_IDS.reduce((acc, key) => ({
-      ...acc,
-      [key]: {
-        id: AVATAR_PARTS.get(key)?.components?.length ? 0 : null,
-        fill: AVATAR_PARTS.get(key)?.components?.length ?
-          (AVATAR_PARTS.get(key)?.defaultColors[0] || null) : null
+  const [parts, dispatchParts] = useStateReducer<AvatarParts>(
+    AVATAR_PART_IDS.reduce((acc, part) => {
+      const parts = AVATAR_PARTS_QUEUE.find(({ id }) => id === part);
+      return {
+        ...acc,
+        [part]: {
+          index: parts?.components.length ? 0 : null,
+          fill: AVATAR_PART_CONFIGS[part].defaultColors[0] || null
+        }
       }
-    }), {}) as AvatarPartState
+    }, {}) as AvatarParts
   );
 
   const avatarPart: AvatarPartHandler = useMemo(() => ({
     // returns the selected `part` component, default colors and selected color.
     get: (partID) => {
-      const { id, fill } = parts[partID];
-      const { components, defaultColors } = AVATAR_PARTS.get(partID) as AvatarPartObject;
-
-      return { component: components[id], defaultColors, id, fill};
+      return { ...parts[partID], ...AVATAR_PART_CONFIGS[partID] };
     },
+
     // updates `avatar image` based on AvatarPartID.
     update: (name, newState) => {
-      const updatedState = { ...parts[name], ...newState };
       dispatchParts({
         ...parts,
-        [name]: updatedState
-      } as AvatarPartState);
+        [name]: { ...parts[name], ...newState }
+      });
     },
   }), [parts, dispatchParts]);
 

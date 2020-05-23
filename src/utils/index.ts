@@ -8,6 +8,23 @@ export const unicode2b64 = (s: string): string => {
   );
 }
 
+export const transpose = <T>(...rows: T[][]): T[][] => {
+  switch (rows.length) {
+    case 0: return [[]];
+    default: {
+      const matrix = [];
+      for (let j = 0; j < rows[0].length; ++j) {
+        const columns: T[] = [];
+        for (let i = 0; i < rows.length; ++i) {
+          columns.push(rows[i][j]);
+        }
+        matrix.push(columns);
+      }
+      return matrix;
+    }
+  }
+}
+
 export const getSerializedSVGString = (svg: SVGSVGElement, size = 100): string => {
   const serialized = new XMLSerializer().serializeToString(svg);
   const startString = `<svg width="${size}" height="${size}"`;
