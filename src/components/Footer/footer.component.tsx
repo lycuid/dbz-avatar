@@ -9,7 +9,7 @@ const Footer: React.FC<FooterProps> = () => {
     <StyledFooter>
       <small>
         {'Artwork and Code by'}&nbsp;
-        <a href='https://abhishek-kdm.github.io' target='_blank'>abhishek-kdm</a>
+        <a href='https://abhishek-kdm.github.io' target='_blank'>abhishek</a>
       </small>
     </StyledFooter>
   )
