@@ -11,7 +11,11 @@ const AvatarImage: React.ForwardRefExoticComponent<React.RefAttributes<SVGSVGEle
 
   const insertAvatarPart = useCallback((partID: AvatarPartID, index) => {
     const { component, fill } = avatarPart.get(partID);
-    return (<React.Fragment key={partID + String(index)}>{component({ fill })}</React.Fragment>);
+    return (
+      <React.Fragment key={partID + String(index)}>
+        {component({ fill })}
+      </React.Fragment>
+    );
   }, [avatarPart]);
 
   return (<>

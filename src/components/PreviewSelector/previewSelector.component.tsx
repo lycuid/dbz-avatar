@@ -13,11 +13,11 @@ const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
   const { avatarPart } = useContext(AppContext) as AvatarAppContext;
 
   const { id, fill } = useMemo(() => avatarPart.get(partID), [avatarPart]);
-  const partsToPreview = useMemo(() => AVATAR_PARTS.get(partID)?.components as React.FC<any>[], [partID]);
+  const partsToPreview = useMemo(() => AVATAR_PARTS.get(partID) as AvatarPartObject, [partID]);
 
   return (<>
     <div className='preview-selector'>
-      {partsToPreview.map((component, previewIndex) => {
+      {partsToPreview.components.map((component, previewIndex) => {
         const isSelected = id === previewIndex;
         return (
           <Preview

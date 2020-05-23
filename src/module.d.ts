@@ -9,8 +9,9 @@ type AvatarPartID
   | 'background';
 
 interface AvatarPartObject {
-  components: React.FC<any>[],
-  defaultColors: string[]
+  readonly components: React.FC<any>[]
+  readonly previewGroup?: string
+  readonly defaultColors: string[]
 }
 interface AvatarPartSelection {
   id: number
