@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-default-typescript",
+  "name": "dbz-personas",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby and Typescript",
+  "description": "Avatar generator from dragonball characters.",
   "version": "0.1.0",
   "author": "Abhishek Kadam <abhishekk19@gmail.com>",
   "dependencies": {
@@ -31,7 +31,8 @@
   },
   "keywords": [
     "gatsby",
-    "typescript"
+    "typescript",
+    "react"
   ],
   "license": "MIT",
   "scripts": {
