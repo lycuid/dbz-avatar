@@ -16,11 +16,11 @@ export const AVATAR_PARTS_QUEUE: AvatarPartQueueItem[] = [
   { id: 'nose', components: Noses },
   { id: 'mouth', components: Mouths },
   { id: 'hair', components: FrontHairs },
-]
+];
 
 export const AVATAR_PART_CONFIGS: AvatarPartConfigs = {
   background: {
-    defaultColors: ['#6dbb58', '#fa8072', '#000000', '#ffdd59', '#708090'],
+    defaultColors: ['#ffdd59', '#6dbb58', '#fa8072', '#000000', '#708090'],
     previewBounds: [0, 0, 250, 250],
   },
   hair: {
@@ -32,7 +32,7 @@ export const AVATAR_PART_CONFIGS: AvatarPartConfigs = {
     previewBounds: [55, 65, 140, 140],
   },
   eyes: {
-    defaultColors: ['#000000', '#ffa801', '#328832', '#ff3f34'],
+    defaultColors: ['#000000', '#d58b01', '#0b8891', '#328832', '#ff3f34'],
     previewBounds: [85, 125, 80, 80],
   },
   nose: {
