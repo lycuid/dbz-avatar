@@ -42,6 +42,7 @@ export const LabelledInput = styled.label`
   display: grid;
   grid-template-columns: auto minmax(0, auto);
   align-items: center;
+  font-size: .8rem;
 
   input {
     padding: .5rem;

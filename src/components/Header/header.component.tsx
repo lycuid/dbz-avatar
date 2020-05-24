@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = () => {
     <StyledHeader scrolled={scrolled}>
       <DownloadContainer>
         <LabelledInput>
-          size 
+          size (px)
           <input
             type='number'
             min={0}
