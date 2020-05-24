@@ -1,5 +1,5 @@
 import React from 'react';
-import './colorSwatch.style.css';
+import StyledColorSwatch from './colorSwatch.style';
 
 
 interface ColorSwatchProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,19 +10,13 @@ interface ColorSwatchProps extends React.HTMLAttributes<HTMLDivElement> {
 const ColorSwatch: React.FC<ColorSwatchProps> = ({
   color,
   selected,
-  className,
   style,
-  ...rest
+  ...props
 }) => {
-  const classes = ['color-swatch'].concat(className ? [className] : []);
-
   return (<>
-    <div {...rest}
-      className={classes.join(' ')}
-      style={{ ...style, backgroundColor: color }}
-    >
+    <StyledColorSwatch color={color} {...props}>
       {color === selected && <>&#x2605;</>}
-    </div>
+    </StyledColorSwatch>
   </>);
 }
 

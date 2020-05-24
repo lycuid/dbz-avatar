@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import './previewSelector.style.css';
+import StyledPreviewSelector from './previewSelector.style';
 
 import { AVATAR_PARTS_QUEUE } from '../../configs';
 import { AppContext } from '../../context';
@@ -21,7 +21,7 @@ const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
   )), [partID]);
 
   return (<>
-    <div className='preview-selector'>
+    <StyledPreviewSelector>
       {partsToPreview.map((components, previewIndex) => {
         const isSelected = index === previewIndex;
         return (
@@ -43,7 +43,7 @@ const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
           </Preview>
         )
       })}
-    </div>
+    </StyledPreviewSelector>
   </>);
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import './colorInput.style.css';
 
 
 interface ColorInputProps
@@ -7,7 +6,7 @@ interface ColorInputProps
 
 const ColorInput: React.FC<ColorInputProps> = (props) => {
   return (<>
-    <div className='color-input'>
+    <div>
       <label htmlFor={props.id || ''}>
         <code>custom:&nbsp;&nbsp;</code>
         <input {...props} type='color' />

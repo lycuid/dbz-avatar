@@ -1,4 +1,6 @@
-.modal {
+import styled from 'styled-components';
+
+const StyledModal = styled.div`
 	position: fixed;
 	z-index: 100000;
 	padding-top: 100px;
@@ -7,9 +9,9 @@
 	width: 100vw;
 	height: 100vh;
 	overflow: auto;
-}
+`;
 
-.modal-content {
+export const ModalContent = styled.div`
 	margin: auto;
 	padding: auto;
 	margin-top: 1rem;
@@ -18,4 +20,6 @@
 	border: none;
 	width: 80%;
 	max-width: 700px;
-}
+`;
+
+export default StyledModal;

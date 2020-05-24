@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useEffect } from 'react';
-import './modal.style.css';
+import StyledModal, { ModalContent } from './modal.style';
 
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -13,7 +13,7 @@ const Modal: React.FC<ModalProps> = ({
   opacity = .75,
   closeFunc,
   children,
-  ...rest
+  ...props
 }) => {
   const handleClose = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) { closeFunc(); }
@@ -36,9 +36,9 @@ const Modal: React.FC<ModalProps> = ({
 
   if (show) {
     return (
-      <div {...rest} className='modal' style={style} onClick={handleClose}>
-        <div className='modal-content'>{children}</div>
-      </div>
+      <StyledModal {...props} style={style} onClick={handleClose}>
+        <ModalContent className='modal-content'>{children}</ModalContent>
+      </StyledModal>
     );
   }
 

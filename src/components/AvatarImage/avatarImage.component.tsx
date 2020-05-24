@@ -1,5 +1,5 @@
 import React, { useContext, useCallback } from 'react';
-import './avatarImage.style.css';
+import StyledAvatarImage from './avatarImage.style';
 
 import { AppContext } from '../../context';
 import { AVATAR_PARTS_QUEUE } from '../../configs';
@@ -20,11 +20,11 @@ const AvatarImage: React.ForwardRefExoticComponent<React.RefAttributes<SVGSVGEle
   }, [avatarPart]);
 
   return (<>
-    <div id={'avatar-image'}>
+    <StyledAvatarImage>
       <svg viewBox='0 0 250 250' ref={ref}>
         {AVATAR_PARTS_QUEUE.map(insertAvatarPart)}
       </svg>
-    </div>
+    </StyledAvatarImage>
   </>);
 });
 

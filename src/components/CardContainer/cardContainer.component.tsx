@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import './cardContainer.style.css';
+import StyledCardContainer from './cardContainer.style';
 
 import Card from '../__pure__/Card/card.component';
 import PreviewSelector from '../PreviewSelector/previewSelector.component';
@@ -16,7 +16,7 @@ const CardContainer: React.FC<CardContainerProps> = () => {
   const { avatarPart } = useContext(AppContext) as AvatarAppContext;
 
   return (<>
-    <div className={'card-container'}>
+    <StyledCardContainer>
       {AVATAR_PART_IDS.map((partID, partIndex) => {
         const { defaultColors, fill } = avatarPart.get(partID);
 
@@ -34,17 +34,16 @@ const CardContainer: React.FC<CardContainerProps> = () => {
 
         return (
           <Card key={partID + String(partIndex)} title={partID} footer={footer}>
-
             <PreviewSelector partID={partID} />
             <SwatchContainer
               selected={fill}
               colors={defaultColors}
-              onSelect={(color) => { avatarPart.update(partID, { fill: color }); }}
+              onSelection={(color) => { avatarPart.update(partID, { fill: color }); }}
             />
           </Card>
         );
       })}
-    </div>
+    </StyledCardContainer>
   </>);
 }
 
