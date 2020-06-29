@@ -45,7 +45,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
   return (<>
     <AppContext.Provider value={{ avatarPart }}>
       <GlobalStyle />
-      <Head title='DBZ personas' />
+      <Head />
       <Wrapper>
         <Header />
         <Main />

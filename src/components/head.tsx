@@ -28,7 +28,7 @@ const Head: React.FC<HeadProps & HelmetProps> = ({
 
   return (
     <Helmet {...props}>
-      <title>{props.title || ''}</title>
+      <title>{(props.title || site.siteMetadata.title) || ''}</title>
       <meta name='description' content={metaDescription} />
       <meta property='og:title' content={props.title || ''} />
       <meta property='og:description' content={metaDescription} />

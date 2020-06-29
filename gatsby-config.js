@@ -2,9 +2,9 @@ const package = require('./package.json');
 
 module.exports = {
   siteMetadata: {
-    title: `Dragonball Personas.`,
+    title: `Dragonball Avatar Generator.`,
     description: package.description,
-    author: `@abhishek_kdm`,
+    author: `@lycuid`,
   },
   pathPrefix: package.name,
   plugins: [
@@ -22,10 +22,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: package.name,
-        short_name: `dbz-personas`,
+        short_name: package.name,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#70a1ff`,
+        theme_color: `#d59f78`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },

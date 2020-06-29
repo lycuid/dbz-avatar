@@ -1,5 +1,5 @@
 {
-  "name": "dbz-personas",
+  "name": "dbz-avatar",
   "private": true,
   "description": "Avatar generator from dragonball characters.",
   "version": "0.1.0",
@@ -37,7 +37,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
+    "build:dev": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "start": "npm run develop",
@@ -47,9 +48,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/abhishek-kdm/gatsby-starter-default-typescript"
+    "url": "https://github.com/lycuid/dbz-avatar"
   },
   "bugs": {
-    "url": "https://github.com/abhishek-kdm/gatsby-starter-default-typescript/issues"
+    "url": "https://github.com/lycuid/dbz-avatar/issues"
   }
 }
