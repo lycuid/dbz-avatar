@@ -99,8 +99,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .primary {
-    background-color: #ff6b81;
-    color: #ffffff;
+    background-color: #ff6b81!important;
+    color: #ffffff!important;
   }
 
   .text-muted {
