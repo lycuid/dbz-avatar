@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = () => {
     if (downloadDialogOpen) {
       const node = avatarRef.current as SVGSVGElement;
       const svgString = getSerializedSVGString(node, imageSize);
-      
+
       const svg = getSVGDataUri(svgString, dataUri.svg || null);
 
       const options = { svgString, size: imageSize };

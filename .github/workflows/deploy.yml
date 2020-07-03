@@ -29,7 +29,7 @@ jobs:
           SSH_DEST: ${{ secrets.AWS_EC2_SSH_DEST }}
         run: |
           rsync --progress --recursive --delete \
-          --exclude .git/ --exclude .gitignore \
+          --exclude .git/ --exclude .github/ --exclude .gitignore \
           --rsync-path="mkdir -p $WEB_PATH/$REPO_NAME && rsync" \
           -e "ssh -o StrictHostKeyChecking=no" \
           $REPO_PATH/. $SSH_DEST:$WEB_PATH/$REPO_NAME
