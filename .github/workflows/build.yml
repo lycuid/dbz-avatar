@@ -11,16 +11,16 @@ on:
       - README.md
       - .gitignore
 jobs:
-  ghpages-build-deploy:
+  build-website:
     env:
-      DEPLOY_BRANCH: gh-pages
+      DEPLOY_BRANCH: deploy
       DEPLOY_DIRECTORY: public
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH client and start ssh-agent.
         uses: webfactory/ssh-agent@v0.2.0
         with:
-          ssh-private-key: ${{ secrets.GHPAGES_SSH_DEPLOY_KEY }}
+          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
 
       - name: Clone and checkout.
         uses: actions/checkout@v2
@@ -31,11 +31,11 @@ jobs:
         run: |
           npm install
           npm run build
-      
+
       - name: Copy necessary files to build directory.
         run: cp .gitignore README.md $DEPLOY_DIRECTORY
 
-      - name: Deploying Website.
+      - name: Deploying to branch Website.
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           SSH: true
@@ -45,3 +45,4 @@ jobs:
           COMMIT_MESSAGE: ${{ format('Deploying to {0} from {1} -- ({2})', env.DEPLOY_BRANCH, github.ref, github.sha) }}
           NAME: Abhishek Kadam
           EMAIL: abhishekk19@gmail.com
+
