@@ -7,7 +7,7 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   opacity?: number,
   closeFunc: () => void
 }
- 
+
 const Modal: React.FC<ModalProps> = ({
   show = false,
   opacity = .75,
@@ -44,5 +44,5 @@ const Modal: React.FC<ModalProps> = ({
 
   return null;
 }
- 
+
 export default Modal;

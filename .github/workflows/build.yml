@@ -33,7 +33,11 @@ jobs:
           npm run build
 
       - name: Copy necessary files to build directory.
-        run: cp -R .gitignore .github/ README.md $DEPLOY_DIRECTORY
+        run: |
+          cp -R .gitignore README.md $DEPLOY_DIRECTORY
+          mkdir -p $DEPLOY_DIRECTORY/.github/workflows
+          cp .github/workflows/deploy.yml $DEPLOY_DIRECTORY/.github/workflows/deploy.yml
+          ls -al $DEPLOY_DIRECTORY
 
       - name: Deploying to branch Website.
         uses: JamesIves/github-pages-deploy-action@releases/v3
