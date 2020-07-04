@@ -7,7 +7,6 @@ module.exports = {
     author: `@lycuid`,
   },
   pathPrefix: package.name,
-  assetPrefix: `https://${package.name}.s3.amazonaws.com/`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
