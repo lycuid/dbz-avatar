@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies and build website.
         run: |
           npm install
-          npm run build --prefix-paths
+          npm run build -- --prefix-paths
 
       - name: Copy necessary files to build directory.
         run: |
