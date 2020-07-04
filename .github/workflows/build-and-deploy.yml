@@ -28,7 +28,6 @@ jobs:
     strategy:
       matrix:
         python-version: [3.5, 3.6, 3.7, 3.8]
-        AWS: ${{ fromJSON(secrets.AWS) }}
 
     needs: [build]
     runs-on: ubuntu-latest
@@ -56,18 +55,18 @@ jobs:
 
       - name: Deploy static assets to S3 bucket.
         env:
-          AWS_ACCESS_KEY_ID: ${{ matrix.AWS.ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ matrix.AWS.SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ matrix.AWS.DEFAULT_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
           aws s3 sync public s3://$REPO_NAME \
           --exclude "*.html" --delete --acl public-read
 
       - name: Deploy html to EC2.
         env:
-          WEB_PATH: ${{ matrix.AWS.EC2.WEB_PATH }}
-          USERNAME: ${{ matrix.AWS.EC2.USERNAME }}
-          HOST: ${{ matrix.AWS.EC2.HOST }}
+          WEB_PATH: ${{ secrets.EC2_WEB_PATH }}
+          USERNAME: ${{ secrets.EC2_USERNAME }}
+          HOST: ${{ secrets.EC2_HOST }}
         run: |
           rsync -avmP --delete-excluded \
           --include="*.html" --include="*/" --exclude="*" \
