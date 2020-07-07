@@ -6,7 +6,7 @@ module.exports = {
     description: package.description,
     author: `@lycuid`,
   },
-  pathPrefix: package.name,
+  pathPrefix: `/p/${package.name}`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
