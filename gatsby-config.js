@@ -7,6 +7,7 @@ module.exports = {
     author: `@lycuid`,
   },
   pathPrefix: `/p/${package.name}`,
+  assetPrefix: `https://cdn.lycuid.dev`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
