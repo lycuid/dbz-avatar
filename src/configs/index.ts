@@ -7,6 +7,8 @@ import FrontHairs from '../components/AvatarParts/fronthair';
 import HairSeperators from '../components/AvatarParts/hairseperator';
 import Backgrounds from '../components/AvatarParts/background';
 
+// The final image formation will exactly be in the order
+// of the following array.
 export const AVATAR_PARTS_QUEUE: AvatarPartQueueItem[] = [
   { id: 'background', components: Backgrounds },
   { id: 'hair', components: BackHairs },

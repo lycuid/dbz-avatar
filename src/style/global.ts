@@ -61,6 +61,9 @@ export const RetroButton = styled(Retro)`
   }
 `;
 
+export const Label = styled.label`
+  ${({ muted }) => muted ? 'color: #48546090;' : ''}
+`;
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -101,10 +104,6 @@ const GlobalStyle = createGlobalStyle`
   .primary {
     background-color: #ff6b81!important;
     color: #ffffff!important;
-  }
-
-  .text-muted {
-    color: #48546090;
   }
 `;
 

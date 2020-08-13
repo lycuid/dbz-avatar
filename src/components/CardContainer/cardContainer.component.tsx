@@ -1,6 +1,8 @@
 import React, { useContext, useMemo } from 'react';
 import StyledCardContainer from './cardContainer.style';
 
+import { Label } from '../../style/global';
+
 import Card from '../__pure__/Card/card.component';
 import PreviewSelector from '../PreviewSelector/previewSelector.component';
 import SwatchContainer from '../SwatchContainer/swatchContainer.component';
@@ -29,7 +31,7 @@ const CardContainer: React.FC<CardContainerProps> = () => {
               }}
             />)
           }
-          return <label className='text-muted'>no color support</label>
+          return <Label muted>no color support</Label>
         }, [fill, partID, avatarPart]);
 
         return (

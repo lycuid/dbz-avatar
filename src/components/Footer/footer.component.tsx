@@ -7,8 +7,7 @@ const Footer: React.FC<FooterProps> = () => {
   return (
     <StyledFooter>
       <small>
-        {'Made with'}
-        <a target="_blank" href="https://www.gatsbyjs.org/">GatsbyJS</a>
+        &lt;<a target="_blank" href="https://www.gatsbyjs.org/">GatsbyJS</a> /&gt;
       </small>
       <small>
         {' style reference '}

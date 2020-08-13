@@ -18,6 +18,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [downloadDialogOpen, setDownloadDialogOpen] = useState<boolean>(false);
 
+  // This will hold the downloadable uri's for the final image.
   const [dataUri, dispatchDataUri] = useStateReducer<DownloadableImageFormats>(IMAGE_URIS);
   const [imageSize, setimageSize] = useState<Maybe<number>>(100);
 
@@ -30,11 +31,15 @@ const Header: React.FC<HeaderProps> = () => {
 
   useEffect(() => {
     if (downloadDialogOpen) {
+      // Constructing a svg string out of the all selected image parts.
       const node = avatarRef.current as SVGSVGElement;
       const svgString = getSerializedSVGString(node, imageSize);
 
+      // converting the svg string into actual svg image blob (ready for download).
       const svg = getSVGDataUri(svgString, dataUri.svg || null);
 
+      // converting the svg string into the blobs of other
+      // image formats (ready for download).
       const options = { svgString, size: imageSize };
       getImageDataUri(
         (dataUris) => { dispatchDataUri({ svg, ...dataUris }); },
