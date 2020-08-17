@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [imageSize, setimageSize] = useState<Maybe<number>>(100);
 
   useEffect(() => {
-    const scrollListener = () => { setScrolled(window.scrollY >= 70); }
+    const scrollListener = () => { setScrolled(window.scrollY >= 1); }
 
     document.addEventListener('scroll', scrollListener);
     return () => document.removeEventListener('scroll', scrollListener);
