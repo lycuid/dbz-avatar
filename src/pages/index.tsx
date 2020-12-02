@@ -35,10 +35,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
 
     // updates `avatar image` based on AvatarPartID.
     update: (name, newState) => {
-      dispatchParts({
-        ...parts,
-        [name]: { ...parts[name], ...newState }
-      });
+      dispatchParts({ ...parts, [name]: { ...parts[name], ...newState } });
     },
   }), [parts, dispatchParts]);
 
