@@ -21,7 +21,7 @@ plugins:
   - 'react-hooks'
   - '@typescript-eslint'
 rules:
-  quotes: 
+  quotes:
     - error
     - single
     - avoidEscape: true
