@@ -7,10 +7,10 @@ const Footer: React.FC<FooterProps> = () => {
   return (
     <StyledFooter>
       <small>
-        &lt;<a target="_blank" href="https://www.gatsbyjs.org/">GatsbyJS</a> /&gt;
+        <a target="_blank" href="https://www.gatsbyjs.org/">&lt;GatsbyJS /&gt;</a>
       </small>
       <small>
-        #<a target='_blank' href='https://nostalgic-css.github.io/NES.css/'>nes.css</a>
+        <a target='_blank' href='https://nostalgic-css.github.io/NES.css/'>#nes.css</a>
       </small>
     </StyledFooter>
   )
