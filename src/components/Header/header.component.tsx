@@ -80,7 +80,10 @@ const Header: React.FC<HeaderProps> = () => {
 
       <AvatarImage ref={avatarRef} />
 
-      <Modal show={downloadDialogOpen} closeFunc={() => { setDownloadDialogOpen(false); }}>
+      <Modal
+        show={downloadDialogOpen}
+        closeFunc={() => { setDownloadDialogOpen(false); }}
+      >
         <ModalContent as='div'>
           <ModalCloseButton
             as='button'
@@ -93,7 +96,12 @@ const Header: React.FC<HeaderProps> = () => {
           {Object.values(dataUri).map((x) => x?.length > 0).every(Boolean) ?
             (<DownloadButtonsContainer>
               {(Object.keys(dataUri) as ImageFormat[]).map((type) => (
-                <RetroButton as='a' key={type} href={dataUri[type]} download={`avatar.${SHORT_NAMES[type]}`}>
+                <RetroButton
+                  as='a'
+                  key={type}
+                  href={dataUri[type]}
+                  download={`avatar.${SHORT_NAMES[type]}`}
+                >
                   {SHORT_NAMES[type]}
                 </RetroButton>
               ))}

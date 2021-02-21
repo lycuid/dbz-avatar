@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 // @ts-ignore
-import background from '../images/background.svg';
+import background from '../Images/background.svg';
 
 export const Wrapper = styled.div`
   display: flex;
