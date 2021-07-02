@@ -26,6 +26,7 @@ jobs:
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           TARGET: ${{ format('{0}/{1}', github.workspace, 'public') }}
           S3_BUCKET_PATH: ${{ format('s3://{0}/p/{1}', secrets.S3_ASSETS_BUCKET, github.event.repository.name) }}
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
