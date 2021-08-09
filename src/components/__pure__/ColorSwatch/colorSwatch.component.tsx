@@ -1,23 +1,24 @@
 import React from 'react';
-import StyledColorSwatch from './colorSwatch.style';
+import { SwatchRadio, SwatchLabel } from './colorSwatch.style';
 
-
-interface ColorSwatchProps extends React.HTMLAttributes<HTMLDivElement> {
-  color: string,
-  selected: string,
+interface ColorSwatchProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  selected: string;
 }
 
 const ColorSwatch: React.FC<ColorSwatchProps> = ({
-  color,
   selected,
-  style,
+  value,
   ...props
 }) => {
-  return (<>
-    <StyledColorSwatch color={color} {...props}>
-      {color === selected && <>&#x2605;</>}
-    </StyledColorSwatch>
-  </>);
-}
+  return (
+    <>
+      <span>
+        <SwatchRadio checked={selected === value} {...props} />
+        <SwatchLabel htmlFor={props.id} style={{ backgroundColor: value }} />
+      </span>
+    </>
+  );
+};
 
 export default ColorSwatch;

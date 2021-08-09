@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Retro, RetroButton } from '../../style/global';
 
 const StyledHeader = styled.header<{ scrolled: boolean }>`
   width: 100%;
@@ -8,20 +7,21 @@ const StyledHeader = styled.header<{ scrolled: boolean }>`
   box-sizing: border-box;
   position: sticky;
   top: 0;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   z-index: 100;
 
   display: grid;
   grid-template-rows: 3rem 20vh;
 
-  ${({ scrolled }) => scrolled
-    ? `
+  ${(p) =>
+    p.scrolled
+      ? `
       padding: .5em;
       margin-bottom: calc(1em + 25px);
       border-bottom: 4px solid #000;
       background-color: var(--color-bg-secondary);
       grid-gap: 0;`
-    : `
+      : `
       grid-gap: 25px;
     `}
 `;
@@ -38,21 +38,21 @@ export const LabelledInput = styled.label`
   border: 2px solid var(--color-primary);
   background-color: var(--color-primary);
   color: var(--color-bg-primary);
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   display: grid;
   grid-template-columns: auto minmax(0, auto);
   align-items: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 
   input {
-    padding: .5rem;
+    padding: 0.5rem;
     border: none;
     outline: none;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 `;
 
-export const ModalContent = styled(Retro)`
+export const ModalContent = styled.div`
   position: relative;
   padding: 2rem;
   display: grid;
@@ -66,23 +66,6 @@ export const DownloadButtonsContainer = styled.div`
   grid-template-columns: repeat(auto-fit, 120px);
 
   width: 100%;
-`;
-
-export const ModalCloseButton = styled(RetroButton)`
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  top: -1.5rem;
-  right: -1.5rem;
-  padding: 0;
-
-  display: grid;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  font-weight: 700;
 `;
 
 export default StyledHeader;

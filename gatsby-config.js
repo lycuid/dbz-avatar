@@ -1,15 +1,9 @@
 const Package = require('./package');
 
 module.exports = {
-  siteMetadata: {
-    title: `Dragonball Avatar Generator.`,
-    description: Package.description,
-    author: `@lycuid`,
-  },
   pathPrefix: `/p/${Package.name}`,
   assetPrefix: `https://cdn.lycuid.dev`,
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -17,7 +11,6 @@ module.exports = {
         path: `${__dirname}/src/Images`,
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -38,7 +31,6 @@ module.exports = {
         fileName: false,
       },
     },
-    `gatsby-plugin-typescript`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

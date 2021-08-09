@@ -10,7 +10,7 @@ const StyledCardContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
   ::-webkit-scrollbar {
-    width: .5rem;
+    width: 0.5rem;
   }
 
   ::-webkit-scrollbar-thumb {

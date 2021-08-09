@@ -1,19 +1,26 @@
 import styled from 'styled-components';
 
-const StyledColorSwatch = styled.div<{ color: string }>`
+export const SwatchLabel = styled.label`
   width: 25px;
   height: 25px;
-  color: white;
   margin: 5px;
   border-radius: 50%;
   cursor: pointer;
-  background-color: ${({ color }) => color};
+  display: grid;
+  grid-template-column: 1fr;
+  grid-template-row: 1fr;
 
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-
-  font-size: 24px;
+  ::before {
+    content: '';
+    color: white;
+    font-size: 24px;
+  }
 `;
 
-export default StyledColorSwatch;
+export const SwatchRadio = styled.input.attrs({ type: 'radio' })`
+  display: none;
+
+  &:checked + ${SwatchLabel}::before {
+    content: '\u2605';
+  }
+`;

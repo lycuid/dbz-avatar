@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 // @ts-ignore
 import background from '../Images/background.svg';
@@ -17,16 +16,25 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
 
-  @media (max-width: 576px) { width: 90%; }
-  @media (min-width: 576px) { width: 540px; }
-  @media (min-width: 768px) { width: 730px; }
-  @media (min-width: 992px) { width: 970px; }
-  @media (min-width: 1200px) { width: 1170px; }
+  @media (max-width: 576px) {
+    width: 90%;
+  }
+  @media (min-width: 576px) {
+    width: 540px;
+  }
+  @media (min-width: 768px) {
+    width: 730px;
+  }
+  @media (min-width: 992px) {
+    width: 970px;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
 `;
 
 /* reference: https://nostalgic-css.github.io/NES.css/ */
-export const Retro = styled(Fragment)`
-  position: relative;
+export const Retro = css`
   border-color: var(--color-primary);
   margin: 6px;
   border-style: solid;
@@ -42,10 +50,12 @@ export const Retro = styled(Fragment)`
 
 export const RetroSelectionCSS = css`
   background-color: #00000017;
-  box-shadow: inset 5px 5px rgba(0, 0, 0, .2);
+  box-shadow: inset 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
-export const RetroButton = styled(Retro)`
+export const RetroButton = styled.button`
+  ${Retro}
+  position: relative;
   ::after {
     content: '';
     position: absolute;
@@ -53,7 +63,7 @@ export const RetroButton = styled(Retro)`
     left: -4px;
     bottom: -4px;
     right: -4px;
-    box-shadow: inset -5px -5px rgba(0, 0, 0, .12);
+    box-shadow: inset -5px -5px rgba(0, 0, 0, 0.12);
   }
 
   :active::after {
@@ -61,8 +71,8 @@ export const RetroButton = styled(Retro)`
   }
 `;
 
-export const Label = styled.label`
-  ${({ muted }) => muted ? 'color: #48546090;' : ''}
+export const Label = styled.label<{ muted: boolean }>`
+  ${(p) => (p.muted ? 'color: #48546090;' : '')}
 `;
 
 const GlobalStyle = createGlobalStyle`

@@ -1,7 +1,9 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import { createElement } from 'react';
+import GlobalStyle, { Wrapper } from './src/style/global';
 
-// You can delete this file if you're not using it
+const el = createElement;
+
+export const wrapPageElement = ({ element, props }) => [
+  el(GlobalStyle, { key: 'global-style' }),
+  el(Wrapper, { key: 'wrapper', ...props }, element),
+];

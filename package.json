@@ -5,21 +5,13 @@
   "version": "0.1.0",
   "author": "Abhishek Kadam <abhishekk19@gmail.com>",
   "dependencies": {
-    "@types/react-helmet": "^5.0.15",
-    "gatsby": "^2.20.12",
-    "gatsby-image": "^2.3.1",
-    "gatsby-plugin-manifest": "^2.3.3",
-    "gatsby-plugin-offline": "^3.1.2",
-    "gatsby-plugin-react-helmet": "^3.2.1",
-    "gatsby-plugin-sharp": "^2.5.3",
-    "gatsby-plugin-styled-components": "^3.3.2",
-    "gatsby-plugin-typescript": "^2.3.1",
-    "gatsby-source-filesystem": "^2.2.2",
-    "gatsby-transformer-sharp": "^2.4.3",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "styled-components": "^5.1.0"
+    "gatsby": "^3.10.2",
+    "gatsby-plugin-image": "^1.10.1",
+    "gatsby-plugin-manifest": "^3.10.0",
+    "gatsby-plugin-offline": "^4.10.0",
+    "gatsby-plugin-sharp": "^3.10.2",
+    "gatsby-plugin-styled-components": "^4.10.0",
+    "gatsby-source-filesystem": "^3.10.0"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.0",
@@ -35,13 +27,14 @@
     "typescript",
     "react"
   ],
-  "license": "MIT",
+  "license": "GPL3",
   "scripts": {
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
-    "start": "gatsby develop --host 0.0.0.0",
+    "start": "gatsby develop --verbose --host 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "tsc": "tsc",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {

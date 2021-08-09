@@ -69,4 +69,5 @@ yarn-error.log
 .yarn-integrity
 
 yarn.lock
+*-lock.json
 

@@ -14,22 +14,19 @@ jobs:
       - name: Clone and checkout.
         uses: actions/checkout@v2
 
-      - name: Installing Yarn.
-        run: curl -o- -L https://yarnpkg.com/install.sh | bash
-        shell: bash
+      - name: Setup Node and NPM.
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
       - name: Install dependencies and build website.
-        run: yarn install && yarn build --prefix-paths
+        run: npm install && npm run build -- --prefix-paths
 
       - name: Deploy to AWS.
         uses: lycuid/aws_deploy@master
         with:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           TARGET: ${{ format('{0}/{1}', github.workspace, 'public') }}
-          S3_BUCKET_PATH: ${{ format('s3://{0}/p/{1}', secrets.S3_ASSETS_BUCKET, github.event.repository.name) }}
-          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
-          EC2_REMOTE_ADDR: ${{ secrets.EC2_REMOTE_ADDR }}
+          GPG_KEY: ${{ secrets.GPG_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           EC2_REMOTE_PATH: ${{ format('{0}/{1}', secrets.EC2_REMOTE_PATH, github.event.repository.name) }}
-
+          S3_BUCKET_PATH: ${{ format('s3://{0}/p/{1}', secrets.S3_ASSETS_BUCKET, github.event.repository.name) }}

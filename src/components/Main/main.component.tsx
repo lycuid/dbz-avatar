@@ -3,11 +3,14 @@ import StyledMain from './main.style';
 
 import CardContainer from '../CardContainer/cardContainer.component';
 
-
-interface MainProps extends React.HTMLAttributes<HTMLElement> { }
+interface MainProps extends React.HTMLAttributes<HTMLElement> {}
 
 const Main: React.FC<MainProps> = (props) => {
-  return <StyledMain as='main' {...props}><CardContainer /></StyledMain>;
-}
+  return (
+    <StyledMain {...props}>
+      <CardContainer />
+    </StyledMain>
+  );
+};
 
 export default Main;

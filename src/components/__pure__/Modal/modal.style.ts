@@ -1,25 +1,29 @@
 import styled from 'styled-components';
+import { Retro, RetroButton } from '../../../style/global';
 
-const StyledModal = styled.div`
-	position: fixed;
-	z-index: 100000;
-	padding-top: 100px;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 100vh;
-	overflow: auto;
+const StyledModal = styled.dialog`
+  ${Retro}
+  margin: 15vh auto auto;
+  width: 80%;
+  max-width: 700px;
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::backdrop {
+    background-color: rgba(200, 200, 200, 0.5);
+    backdrop-filter: blur(5px);
+  }
 `;
 
-export const ModalContent = styled.div`
-	margin: auto;
-	padding: auto;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-	display: block;
-	border: none;
-	width: 80%;
-	max-width: 700px;
+export const ModalCloseButton = styled.span`
+  cursor: pointer;
+  align-self: flex-end;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 700;
 `;
 
 export default StyledModal;

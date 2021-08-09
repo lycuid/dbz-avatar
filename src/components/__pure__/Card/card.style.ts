@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Retro } from '../../../style/global';
 
-
-const StyledCard = styled(Retro)`
-  padding: .5em 10px 5px;
+const StyledCard = styled.div`
+  ${Retro}
+  padding: 0.5em 10px 5px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -17,7 +17,7 @@ export const CardTitle = styled.span`
 
   top: -1rem;
   left: 1rem;
-  padding: .25em;
+  padding: 0.25em;
 
   border-top: 4px solid var(--color-primary);
   background-color: var(--color-bg-secondary);

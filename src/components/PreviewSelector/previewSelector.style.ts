@@ -8,13 +8,15 @@ const StyledPreviewSelector = styled.div`
   overflow-x: auto;
   display: flex;
 
-  * { margin: 0 10px; }
+  * {
+    margin: 0 10px;
+  }
 
   ::-webkit-scrollbar {
-    height: .5rem;
+    height: 0.5rem;
   }
   ::-webkit-scrollbar-thumb {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background-color: #ccc;
   }
   ::-webkit-scrollbar-thumb:hover {

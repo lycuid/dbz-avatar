@@ -54,9 +54,3 @@ export const SHORT_NAMES: { [k in ImageFormat]: string } = {
   png: 'png',
   jpeg: 'jpg',
 };
-
-export const IMAGE_URIS: { [k in ImageFormat]: string } = {
-  svg: '',
-  png: '',
-  jpeg: '',
-};
