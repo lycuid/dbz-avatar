@@ -14,7 +14,7 @@ export const onPreRenderHTML = ({
   replaceHeadComponents,
 }) => {
   replaceHeadComponents([
-    el('title', null, ''),
+    el('title', null, `${Package.name} | ${Package.description}`),
     el('meta', { name: 'description', content: Package.description }),
     el('meta', { property: 'og:title', content: Package.name }),
     el('meta', { property: 'og:description', content: Package.description }),
