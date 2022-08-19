@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import GlobalStyle from '../style/global';
 
 import Header from '../components/Header/header.component';
 import Main from '../components/Main/main.component';
@@ -13,7 +12,7 @@ import {
 import { useStateReducer } from '../utils/hooks';
 import { AppContext } from '../context';
 
-interface IndexPageProps {}
+interface IndexPageProps { }
 
 const IndexPage: React.FC<IndexPageProps> = () => {
   const [parts, dispatchParts] = useStateReducer<AvatarParts>(
@@ -29,7 +28,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     }, {}) as AvatarParts
   );
 
-  const avatarPart: AvatarPartHandler = useMemo(
+  const avatar: AvatarHandler = useMemo(
     () => ({
       // returns the selected `part` component, default colors and selected color.
       get: (partID) => {
@@ -37,8 +36,8 @@ const IndexPage: React.FC<IndexPageProps> = () => {
       },
 
       // updates `avatar image` based on AvatarPartID.
-      update: (name, newState) => {
-        dispatchParts({ ...parts, [name]: { ...parts[name], ...newState } });
+      update: (partID, newState) => {
+        dispatchParts({ ...parts, [partID]: { ...parts[partID], ...newState } });
       },
     }),
     [parts, dispatchParts]
@@ -46,7 +45,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
 
   return (
     <>
-      <AppContext.Provider value={{ avatarPart }}>
+      <AppContext.Provider value={{ avatar }}>
         <Header />
         <Main />
         <Footer />

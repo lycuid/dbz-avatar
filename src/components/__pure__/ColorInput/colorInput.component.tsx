@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ColorInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+interface ColorInputProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 const ColorInput: React.FC<ColorInputProps> = (props) => {
   return (

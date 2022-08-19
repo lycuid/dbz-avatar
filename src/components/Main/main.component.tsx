@@ -3,7 +3,7 @@ import StyledMain from './main.style';
 
 import CardContainer from '../CardContainer/cardContainer.component';
 
-interface MainProps extends React.HTMLAttributes<HTMLElement> {}
+interface MainProps extends React.HTMLAttributes<HTMLElement> { }
 
 const Main: React.FC<MainProps> = (props) => {
   return (

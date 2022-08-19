@@ -1,23 +1,23 @@
-import Faces from '../components/AvatarParts/face';
-import Eyes from '../components/AvatarParts/eyes';
-import Noses from '../components/AvatarParts/nose';
-import Mouths from '../components/AvatarParts/mouth';
-import BackHairs from '../components/AvatarParts/backhair';
-import FrontHairs from '../components/AvatarParts/fronthair';
-import HairSeperators from '../components/AvatarParts/hairseperator';
-import Backgrounds from '../components/AvatarParts/background';
+import FaceList from '../components/AvatarParts/face';
+import EyeList from '../components/AvatarParts/eyes';
+import NoseList from '../components/AvatarParts/nose';
+import MouthList from '../components/AvatarParts/mouth';
+import BackHairList from '../components/AvatarParts/backhair';
+import FrontHairList from '../components/AvatarParts/fronthair';
+import HairSeperatorList from '../components/AvatarParts/hairseperator';
+import BackgroundList from '../components/AvatarParts/background';
 
 // The final image formation will exactly be in the order
 // of the following array.
 export const AVATAR_PARTS_QUEUE: AvatarPartQueueItem[] = [
-  { id: 'background', components: Backgrounds },
-  { id: 'hair', components: BackHairs },
-  { id: 'hair', components: HairSeperators },
-  { id: 'face', components: Faces },
-  { id: 'eyes', components: Eyes },
-  { id: 'nose', components: Noses },
-  { id: 'mouth', components: Mouths },
-  { id: 'hair', components: FrontHairs },
+  { id: 'background', components: BackgroundList },
+  { id: 'hair', components: BackHairList },
+  { id: 'hair', components: HairSeperatorList },
+  { id: 'face', components: FaceList },
+  { id: 'eyes', components: EyeList },
+  { id: 'nose', components: NoseList },
+  { id: 'mouth', components: MouthList },
+  { id: 'hair', components: FrontHairList },
 ];
 
 export const AVATAR_PART_CONFIGS: AvatarPartConfigs = {

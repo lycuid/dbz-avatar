@@ -24,7 +24,7 @@ const DEFAULT_IMAGE_URIS: { [k in ImageFormat]: string } = {
   jpeg: '',
 };
 
-interface HeaderProps {}
+interface HeaderProps { }
 
 const Header: React.FC<HeaderProps> = () => {
   const avatarRef = useRef<SVGSVGElement>(null);
@@ -97,9 +97,7 @@ const Header: React.FC<HeaderProps> = () => {
       </StyledHeader>
       <Modal ref={modalRef} closeFunc={clearExport}>
         <ModalContent>
-          {Object.values(dataUri)
-            .map((x) => x?.length > 0)
-            .every(Boolean) ? (
+          {Object.values(dataUri).map((x) => x?.length > 0).every(Boolean) ? (
             <DownloadButtonsContainer>
               {(Object.keys(dataUri) as ImageFormat[]).map((format) => (
                 <RetroButton
@@ -112,9 +110,7 @@ const Header: React.FC<HeaderProps> = () => {
                 </RetroButton>
               ))}
             </DownloadButtonsContainer>
-          ) : (
-            <div>Preparing to export...please wait!.</div>
-          )}
+          ) : (<div>Preparing to export...please wait!.</div>)}
         </ModalContent>
       </Modal>
     </>

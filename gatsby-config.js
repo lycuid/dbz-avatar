@@ -2,7 +2,6 @@ const Package = require('./package');
 
 module.exports = {
   pathPrefix: `/p/${Package.name}`,
-  assetPrefix: `https://cdn.lycuid.dev`,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

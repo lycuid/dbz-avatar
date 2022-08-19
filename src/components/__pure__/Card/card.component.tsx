@@ -1,7 +1,7 @@
 import React from 'react';
 import StyledCard, { CardTitle, CardBody, CardFooter } from './card.style';
 
-interface CardProps {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   footer: JSX.Element;
 }

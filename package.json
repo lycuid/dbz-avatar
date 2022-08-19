@@ -5,13 +5,13 @@
   "version": "0.1.0",
   "author": "Abhishek Kadam <abhishekk19@gmail.com>",
   "dependencies": {
-    "gatsby": "^3.10.2",
-    "gatsby-plugin-image": "^1.10.1",
-    "gatsby-plugin-manifest": "^3.10.0",
-    "gatsby-plugin-offline": "^4.10.0",
-    "gatsby-plugin-sharp": "^3.10.2",
-    "gatsby-plugin-styled-components": "^4.10.0",
-    "gatsby-source-filesystem": "^3.10.0"
+    "gatsby": "^4.20.0",
+    "gatsby-plugin-image": "2.21.0",
+    "gatsby-plugin-manifest": "^4.21.0",
+    "gatsby-plugin-offline": "^5.21.0",
+    "gatsby-plugin-sharp": "^4.21.0 ",
+    "gatsby-plugin-styled-components": "^5.21.0",
+    "gatsby-source-filesystem": "^4.21.0"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.0",
@@ -29,7 +29,7 @@
   ],
   "license": "GPL3",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --verbose",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "start": "gatsby develop --verbose --host 0.0.0.0",
     "serve": "gatsby serve",

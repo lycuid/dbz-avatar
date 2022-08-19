@@ -24,14 +24,14 @@ interface AvatarPartComplete
   extends AvatarPartConfig,
     AvatarPartConfigSelected {}
 
-type AvatarPartHandler = {
+type AvatarHandler = {
   get: (partID: AvatarPartID) => AvatarPartComplete;
   update: (
     name: AvatarPartID,
     state: Partial<AvatarPartConfigSelected>
   ) => void;
 };
-type AvatarAppContext = { avatarPart: AvatarPartHandler };
+type AvatarAppContext = { avatar: AvatarHandler };
 
 type ImageFormat = 'svg' | 'png' | 'jpeg';
 type DownloadableImageFormats = { [k in ImageFormat]: string };

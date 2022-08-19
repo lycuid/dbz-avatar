@@ -12,12 +12,9 @@ interface PreviewSelectorProps {
 }
 
 const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
-  const { avatarPart } = useContext(AppContext) as AvatarAppContext;
+  const { avatar } = useContext(AppContext) as AvatarAppContext;
+  const { index, fill, previewBounds } = useMemo(() => avatar.get(partID), [avatar, partID]);
 
-  const { index, fill, previewBounds } = useMemo(
-    () => avatarPart.get(partID),
-    [avatarPart, partID]
-  );
   const partsToPreview = useMemo(
     () =>
       transpose(
@@ -39,7 +36,7 @@ const PreviewSelector: React.FC<PreviewSelectorProps> = ({ partID }) => {
               selected={isSelected}
               onClick={() => {
                 if (!isSelected)
-                  avatarPart.update(partID, { index: previewIndex });
+                  avatar.update(partID, { index: previewIndex });
               }}
             >
               <svg viewBox={previewBounds.map(String).join(', ')}>

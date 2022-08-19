@@ -8,16 +8,16 @@ import { AVATAR_PARTS_QUEUE } from '../../configs';
 interface AvatarImageProps { }
 
 const AvatarImage: React.ForwardRefExoticComponent<React.RefAttributes<SVGSVGElement> & AvatarImageProps> = React.forwardRef(({}, ref) => {
-  const { avatarPart } = useContext(AppContext) as AvatarAppContext;
+  const { avatar } = useContext(AppContext) as AvatarAppContext;
 
   const insertAvatarPart = useCallback(({ id, components }: AvatarPartQueueItem, key: number) => {
-    const { index, fill } = avatarPart.get(id);
+    const { index, fill } = avatar.get(id);
     return (
       <React.Fragment key={`${id}-${key}`}>
         {components[index]({ fill })}
       </React.Fragment>
     )
-  }, [avatarPart]);
+  }, [avatar]);
 
   return (<>
     <StyledAvatarImage>
