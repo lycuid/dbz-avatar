@@ -1,47 +1,24 @@
 {
   "name": "dbz-avatar",
-  "private": true,
-  "description": "Avatar generator from dragonball characters.",
   "version": "0.1.0",
-  "author": "Abhishek Kadam <abhishekk19@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 8000",
+    "build": "next build && next export",
+    "start": "next start -p 8000",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "gatsby": "^4.20.0",
-    "gatsby-plugin-image": "2.21.0",
-    "gatsby-plugin-manifest": "^4.21.0",
-    "gatsby-plugin-offline": "^5.21.0",
-    "gatsby-plugin-sharp": "^4.21.0 ",
-    "gatsby-plugin-styled-components": "^5.21.0",
-    "gatsby-source-filesystem": "^4.21.0"
+    "@types/node": "18.11.14",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
+    "next": "13.0.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.4"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.0",
-    "@typescript-eslint/eslint-plugin": "^2.28.0",
-    "@typescript-eslint/parser": "^2.28.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "prettier": "^1.19.1"
-  },
-  "keywords": [
-    "gatsby",
-    "typescript",
-    "react"
-  ],
-  "license": "GPL3",
-  "scripts": {
-    "build": "gatsby build --verbose",
-    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
-    "start": "gatsby develop --verbose --host 0.0.0.0",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "tsc": "tsc",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lycuid/dbz-avatar"
-  },
-  "bugs": {
-    "url": "https://github.com/lycuid/dbz-avatar/issues"
+    "@types/styled-components": "^5.1.26",
+    "styled-components": "^5.3.6"
   }
 }

@@ -6,7 +6,8 @@ on:
       - master
     paths:
       - "src/**"
-      - "gatsby*"
+      - "pages/**"
+      - "public/**"
       - ".github/workflows/pages.yml"
 jobs:
   build:
@@ -21,12 +22,12 @@ jobs:
           node-version: "16"
 
       - name: Install dependencies and build website.
-        run: npm install && npm run build -- --prefix-paths
+        run: npm install && npm run build
 
       - name: Uploading artifacts.
         uses: actions/upload-pages-artifact@v1
         with:
-          path: "public"
+          path: "out"
 
   deploy:
     needs: build
