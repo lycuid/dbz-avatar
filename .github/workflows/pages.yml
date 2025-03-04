@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node and NPM.
         uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: "18.17.0"
 
       - name: Install dependencies and build website.
         run: npm install && npm run build
